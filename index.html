@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Planificador & Fitness IA</title>
+    <title>VITA PRO - Plan de Nutrición, Ayuno & Fitness IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -55,9 +55,9 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Ciclo 1 · Semana 1</span>
+                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Ayuno Medjugorje Incluido</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Adaptativo con Evaluación IA</p>
+                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Adaptativo con Ayuno Espiritual (Mié y Vie)</p>
                 </div>
             </div>
 
@@ -96,10 +96,10 @@
         <div class="mb-6 glass-panel rounded-2xl p-5 border border-brand-500/30 bg-gradient-to-r from-brand-900/30 via-dark-card to-dark-card">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-500 bg-brand-500/10 px-2 py-0.5 rounded-full border border-brand-500/20">Objetivos del Ciclo Actual (Fijados por la IA)</span>
-                    <h3 class="text-base font-bold text-white mt-1.5">Meta Nutrición & Gimnasio</h3>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-500 bg-brand-500/10 px-2 py-0.5 rounded-full border border-brand-500/20">Objetivos del Ciclo Actual</span>
+                    <h3 class="text-base font-bold text-white mt-1.5">Meta Nutrición, Ayuno Espiritual & Gimnasio</h3>
                     <p id="ai-active-goals" class="text-xs text-slate-300 mt-1 leading-relaxed">
-                        • <strong>Dra. Elena:</strong> Mantener consistencia en las 3 comidas principales sin saltar la ración de proteína.<br>
+                        • <strong>Dra. Elena:</strong> Cumplir el Ayuno Espiritual a base de Pan y Agua los Miércoles y Viernes.<br>
                         • <strong>Coach Marcos:</strong> Progresar 1-2 repeticiones en Press Banca y controlar la bajada en Peso Muerto.
                     </p>
                 </div>
@@ -159,16 +159,16 @@
                 <div class="border-b border-white/10 pb-4">
                     <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">Evaluación de Ciclo</span>
                     <h2 class="text-2xl font-bold text-white mt-1">Evaluación de Avance y Rediseño de Plan (Cada 3 Semanas)</h2>
-                    <p class="text-xs text-slate-400 mt-1">Los entrenadores analizarán tu adherencia real y modificarán tus recetas y ejercicios para el próximo ciclo.</p>
+                    <p class="text-xs text-slate-400 mt-1">Los entrenadores analizarán tu adherencia al plan y ayunos espirituales para ajustar el próximo ciclo.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
-                        <label class="text-xs font-bold text-white uppercase block mb-2">1. Adherencia a las comidas</label>
+                        <label class="text-xs font-bold text-white uppercase block mb-2">1. Cumplimiento Nutrición y Ayuno</label>
                         <select id="eval-meals-score" class="w-full bg-dark-bg text-xs text-white p-2.5 rounded-xl border border-white/10 outline-none">
-                            <option value="alta">Alta (>80% comidas cumplidas)</option>
-                            <option value="media">Media (50-80% cumplidas)</option>
-                            <option value="baja">Baja (Me costó preparar la comida)</option>
+                            <option value="alta">Alta (Cumplido plan y ayunos de Mié/Vie)</option>
+                            <option value="media">Media (Cumplido en un 50-80%)</option>
+                            <option value="baja">Baja (Me costó mantener el ayuno)</option>
                         </select>
                     </div>
 
@@ -184,9 +184,9 @@
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
                         <label class="text-xs font-bold text-white uppercase block mb-2">3. Sensación general</label>
                         <select id="eval-energy" class="w-full bg-dark-bg text-xs text-white p-2.5 rounded-xl border border-white/10 outline-none">
-                            <option value="excelente">Excelente energía y motivación</option>
+                            <option value="excelente">Excelente energía y paz espiritual</option>
                             <option value="normal">Normal, con días ocupados</option>
-                            <option value="cansado">Necesito recetas más rápidas</option>
+                            <option value="cansado">Necesito ajustar raciones</option>
                         </select>
                     </div>
                 </div>
@@ -252,7 +252,7 @@
                     <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
 
                     <div class="p-3 border-t border-white/10 bg-dark-bg/80 flex items-center gap-2">
-                        <input type="text" id="chat-user-input" placeholder="Consulta sobre tu plan o modifica un ingrediente..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
+                        <input type="text" id="chat-user-input" placeholder="Consulta sobre tu plan o el ayuno de Medjugorje..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
                         <button id="btn-send-message" class="p-3 bg-brand-500 hover:bg-brand-600 text-black font-bold rounded-xl transition shrink-0">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </button>
@@ -261,14 +261,14 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: BATCH COOKING QUE CAMBIA DINÁMICAMENTE POR SEMANA -->
+        <!-- SECCIÓN 4: BATCH COOKING -->
         <section id="view-grocery" class="space-y-6 hidden">
             <div class="glass-panel rounded-2xl p-6 border border-white/10">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
                     <div>
                         <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
                         <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
-                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes específica para cada semana de tu rotación.</p>
+                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes para tu nutrición y el pan de calidad para ayuno de Miércoles y Viernes.</p>
                     </div>
 
                     <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
@@ -320,14 +320,14 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT CON DATOS DE COMPRA DINÁMICOS POR SEMANA -->
+    <!-- JAVASCRIPT CON AYUNO DE MEDJUGORJE INTEGRADO EN MIÉRCOLES Y VIERNES -->
     <script>
         let PLAN_DATA = {
             1: {
                 title: "Semana 1: Enfoque Clásico y Rápido",
                 days: {
                     lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
-                        { id: "w1_lun_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "25g proteína magra." },
+                        { id: "w1_lun_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "25g proteína magra y grasas saludables." },
                         { id: "w1_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Descanso 90 seg." },
                         { id: "w1_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta inclinada.", detail: "5 km/h." },
                         { id: "w1_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo + 1 vasito de arroz + Brócoli.", detail: "Proteína pura." },
@@ -339,27 +339,85 @@
                         { id: "w1_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series plancha frontal al fallo.", detail: "Core." },
                         { id: "w1_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 150g patata cocida + Judías verdes.", detail: "Hierro hemo." },
                         { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas atún + 100g boniato microondas + Champiñones.", detail: "Digestión ligera." }
+                    ]},
+                    miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso Activo", tasks: [
+                        { id: "w1_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ofrecimiento del ayuno y oración matutina." },
+                        { id: "w1_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Desconexión y reflexión.", detail: "Descanso mental y recarga espiritual." },
+                        { id: "w1_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Alimento sencillo en oración." },
+                        { id: "w1_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua para culminar el día.", detail: "Paz y descanso nocturno." }
+                    ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w1_jue_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego + 40g avena + nueces + plátano.", detail: "Glucógeno." },
+                        { id: "w1_jue_gym", cat: "gym", title: "Gym: Torso Hipertrofia", text: "Press inclinado (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones (4x15) ➔ Superserie Biceps/Triceps (3x12).", detail: "Hipertrofia." },
+                        { id: "w1_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Ritmo constante." },
+                        { id: "w1_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo + 150g patata cocida + Brócoli.", detail: "Nutrición magra." },
+                        { id: "w1_jue_cen", cat: "cena", title: "Cena", text: "200g Emperador + 100g boniato + Ensalada.", detail: "Omega-3." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
+                        { id: "w1_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Comienzo del ayuno espiritual." },
+                        { id: "w1_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12 pasos) ➔ Curl isquios (4x12) ➔ Prensa moderada (3x15).", detail: "Mantén cargas moderadas consciente del ayuno." },
+                        { id: "w1_vie_hii", cat: "cardio", title: "Cardio Suave", text: "10 min elíptica ritmo moderado continuo.", detail: "Sin fatiga excesiva." },
+                        { id: "w1_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Fuerza y serenidad." },
+                        { id: "w1_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua para culminar el día.", detail: "Cierre del ayuno espiritual del viernes." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w1_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos diarios.", detail: "Paseo activo." },
+                        { id: "w1_sab_nut", cat: "almuerzo", title: "Nutrición", text: "Prioriza platos limpios con proteína.", detail: "Proteína de calidad." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Batch Cooking", tasks: [
+                        { id: "w1_dom_bat", cat: "mision", title: "Batch Cooking (40 min)", text: "Cocer patatas, arroz y comprar pan artesanal de calidad.", detail: "Prep clave semanal." }
+                    ]}
+                }
+            },
+            2: {
+                title: "Semana 2: Enfoque Variedad y Sabores",
+                days: {
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys y albahaca + 1 tostada.", detail: "Sabor fresco." }] },
+                    miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso", tasks: [
+                        { id: "w2_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua fresca.", detail: "Ayuno espiritual." },
+                        { id: "w2_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w2_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
+                        { id: "w2_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
+                        { id: "w2_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w2_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
+                    ]}
+                }
+            },
+            3: {
+                title: "Semana 3: Enfoque Práctico y Especias",
+                days: {
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + tostada crema cacahuete + manzana.", detail: "Energía." }] },
+                    miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso", tasks: [
+                        { id: "w3_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
+                        { id: "w3_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w3_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
+                        { id: "w3_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
+                        { id: "w3_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w3_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
                     ]}
                 }
             }
         };
 
-        // LISTA DE LA COMPRA ESPECÍFICA Y NUTRIDA PARA CADA SEMANA
         const GROCERY_DATA = {
             1: [
-                { category: "Proteínas Magras", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Pavo", "400g Salmón fresco", "200g Merluza", "4 Latas de atún al natural"] },
-                { category: "Lácteos & Huevos", items: ["3 Docenas de huevos frescos", "1 kg Yogur griego ligero 0%", "Nueces / Frutos secos"] },
-                { category: "Carbohidratos & Verduras", items: ["Vasitos de arroz para microondas", "Patatas medianas & Boniatos", "Brócoli fresco & Judías verdes", "Aguacates & Plátanos"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Salmón fresco", "4 Latas de atún al natural"] },
+                { category: "Lácteos, Huevos & Carbohidratos", items: ["3 Docenas de huevos", "1 kg Yogur griego 0%", "Vasitos de arroz", "Patatas & Boniatos"] }
             ],
             2: [
-                { category: "Proteínas Magras", items: ["800g Tiras de pollo (salteado)", "400g Hamburguesas ternera magra", "400g Lomo ibérico", "200g Atún fresco / Sepia", "200g Bacalao", "1 Lata berberechos"] },
-                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "Almendras al natural"] },
-                { category: "Carbohidratos & Verduras", items: ["Arroz integral en vasitos", "Copos de maíz sin azúcar", "Pimientos rojos/verdes y cebollas", "Calabaza asada & Champiñones", "Fresas o frutos rojos"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["800g Tiras de pollo", "400g Hamburguesas ternera magra", "400g Lomo ibérico", "200g Sepia/Calamar"] },
+                { category: "Lácteos, Huevos & Carbohidratos", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "Arroz integral", "Calabaza asada"] }
             ],
             3: [
-                { category: "Proteínas Magras", items: ["800g Pechuga de pollo (al curry)", "600g Ternera picada 95% magra", "400g Solomillo pavo al pimentón", "200g Langostinos", "200g Dorada / Calamares", "2 Latas salmón o pulpo"] },
-                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Crema de cacahuete pura 100%"] },
-                { category: "Carbohidratos & Verduras", items: ["Arroz basmati en vasitos", "Avena molida & Cacao puro", "Maíz dulce & Boniatos", "Curry, Canela & Pimentón", "Crema de calabaza & Manzanas"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["800g Pechuga de pollo", "600g Ternera picada 95% magra", "400g Solomillo pavo"] },
+                { category: "Lácteos, Huevos & Carbohidratos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Arroz basmati", "Crema de cacahuete"] }
             ]
         };
 
@@ -368,15 +426,15 @@
                 case 'desayuno': return `<svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>`;
                 case 'gym': return `<svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`;
                 case 'cardio': return `<svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`;
-                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 00-4z" /></svg>`;
+                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>`;
                 case 'cena': return `<svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
                 default: return `<svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
             }
         }
 
         const AI_COACHES = {
-            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E" },
-            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M" }
+            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E", systemPrompt: "Eres la Dra. Elena Ruiz. CONOCES Y RESPETAS EL AYUNO ESPIRITUAL DEL USUARIO A BASE DE PAN Y AGUA LOS MIÉRCOLES Y VIERNES (como se pide en Medjugorje). Apoya su ayuno de esos dos días y ajusta la nutrición de los días de entresemana en consecuencia." },
+            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M", systemPrompt: "Eres el Coach Marcos Vane. Sabes que el usuario hace ayuno los miércoles y viernes, por lo que adaptas el volumen e intensidad de entrenamiento en esos días de ayuno." }
         };
 
         let currentState = {
@@ -468,25 +526,55 @@
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
         }
 
-        // RENDERIZADO DINÁMICO DE LA LISTA DE LA COMPRA SEGÚN LA SEMANA SELECCIONADA
+        async function runFullCycleEvaluation() {
+            const mealsScore = document.getElementById('eval-meals-score').value;
+            const gymScore = document.getElementById('eval-gym-score').value;
+            const energyScore = document.getElementById('eval-energy').value;
+            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
+
+            const container = document.getElementById('eval-report-container');
+            const reportText = document.getElementById('eval-report-text');
+            container.classList.remove('hidden');
+            reportText.innerText = "Tus Agentes Dra. Elena y Coach Marcos están analizando tu rendimiento y tus días de ayuno de las últimas 3 semanas...";
+
+            if (!apiKey) {
+                setTimeout(() => {
+                    reportText.innerText = `Evaluación completada (Modo Asistido):\n\n• Diagnóstico: Adherencia ${mealsScore}, rendimiento gym ${gymScore}.\n• Objetivos Ciclo 2: Mantener el Ayuno Espiritual de Medjugorje (Mié/Vie) y progresar en ejercicios de empuje los lunes y jueves.`;
+                }, 800);
+                return;
+            }
+
+            try {
+                const res = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                    body: JSON.stringify({
+                        model: 'gpt-4o-mini',
+                        messages: [
+                            { role: 'system', content: 'Eres un equipo formado por una nutricionista y un entrenador. Evalúa los resultados respetando siempre su ayuno de pan y agua los miércoles y viernes.' },
+                            { role: 'user', content: `Resultado 3 Semanas: Cumplimiento: ${mealsScore}, Rendimiento gym: ${gymScore}, Energía: ${energyScore}.` }
+                        ]
+                    })
+                });
+                const data = await res.json();
+                if (data.choices && data.choices[0]) {
+                    reportText.innerText = data.choices[0].message.content;
+                    document.getElementById('ai-active-goals').innerHTML = `• <strong>Nuevos Objetivos IA (Ciclo 2):</strong> ${data.choices[0].message.content.substring(0, 180)}...`;
+                }
+            } catch(e) {
+                reportText.innerText = "Error de conexión al evaluar con OpenAI.";
+            }
+        }
+
         function renderGroceryList() {
             const container = document.getElementById('grocery-categories');
-            const selectedWeek = document.getElementById('grocery-week-select').value;
+            const week = document.getElementById('grocery-week-select').value;
             container.innerHTML = '';
-            
-            const categories = GROCERY_DATA[selectedWeek] || GROCERY_DATA[1];
-            categories.forEach(c => {
+            const cats = GROCERY_DATA[week] || GROCERY_DATA[1];
+            cats.forEach(c => {
                 const card = document.createElement('div');
                 card.className = "glass-card rounded-2xl p-5 border border-white/5";
-                card.innerHTML = `
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/5 flex items-center justify-between">
-                        <span>${c.category}</span>
-                        <span class="text-[10px] text-brand-500 font-normal">${c.items.length} productos</span>
-                    </h4>
-                    <ul class="space-y-2 text-xs text-slate-300">
-                        ${c.items.map(item => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${item}</li>`).join('')}
-                    </ul>
-                `;
+                card.innerHTML = `<h4 class="text-xs font-bold text-white uppercase mb-3 pb-2 border-b border-white/5">${c.category}</h4><ul class="space-y-2 text-xs text-slate-300">${c.items.map(i => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${i}</li>`).join('')}</ul>`;
                 container.appendChild(card);
             });
         }
@@ -500,15 +588,15 @@
                 });
             });
 
-            // EVENTO DE CAMBIO EN EL SELECTOR DE SEMANA DE COMPRA
             document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
+            document.getElementById('btn-run-full-evaluation')?.addEventListener('click', runFullCycleEvaluation);
+            document.getElementById('btn-open-eval-modal')?.addEventListener('click', () => switchView('eval'));
 
             document.getElementById('btn-save-api-key')?.addEventListener('click', () => {
                 const key = document.getElementById('api-key-input').value.trim();
                 if (key) { localStorage.setItem('vita_pro_openai_key', key); currentState.apiKey = key; alert('¡Clave API guardada con éxito!'); }
             });
 
-            // NAVEGACIÓN COMPLETA TANTO DESKTOP COMO MÓVIL
             function switchView(targetView) {
                 const views = ['daily', 'eval', 'coaches', 'grocery'];
                 views.forEach(v => {
