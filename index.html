@@ -55,7 +55,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">IA Con Memoria</span>
+                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Context IA</span>
                     </div>
                     <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Nutricional & Entrenador Personal</p>
                 </div>
@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <!-- SECCIÓN 1: PLAN DIARIO -->
+        <!-- SECCIÓN 1: PLAN DIARIO CON ICONOS RESTAURADOS -->
         <section id="view-daily" class="space-y-6">
             <div class="space-y-4">
                 <div class="grid grid-cols-3 gap-2 p-1.5 bg-dark-card rounded-2xl border border-white/5">
@@ -155,7 +155,7 @@
             <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- SECCIÓN 2: COACHES IA EN VIVO -->
+        <!-- SECCIÓN 2: COACHES IA QUE CONOCEN TU PLAN Y RUTINA -->
         <section id="view-coaches" class="space-y-6 hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
@@ -168,7 +168,7 @@
                             <div>
                                 <h4 class="text-sm font-bold text-white">Dra. Elena Ruiz</h4>
                                 <p class="text-xs text-brand-500 font-semibold">Nutricionista IA</p>
-                                <p class="text-[11px] text-slate-400 mt-0.5">Adaptación de dieta y calorías.</p>
+                                <p class="text-[11px] text-slate-400 mt-0.5">Conoce tu menú de 3 semanas.</p>
                             </div>
                         </div>
                     </div>
@@ -179,12 +179,11 @@
                             <div>
                                 <h4 class="text-sm font-bold text-white">Coach Marcos Vane</h4>
                                 <p class="text-xs text-purple-400 font-semibold">Entrenador Personal IA</p>
-                                <p class="text-[11px] text-slate-400 mt-0.5">Hipertrofia y técnica de gym.</p>
+                                <p class="text-[11px] text-slate-400 mt-0.5">Conoce tu rutina de fuerza/pierna.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Cuadro Clave API -->
                     <div class="glass-panel rounded-2xl p-4 border border-brand-500/30 bg-brand-500/5 space-y-3">
                         <div class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
@@ -195,7 +194,6 @@
                     </div>
                 </div>
 
-                <!-- Chat interactivo en tiempo real -->
                 <div class="lg:col-span-2 glass-panel rounded-2xl border border-white/10 flex flex-col h-[560px] overflow-hidden">
                     <div class="p-4 border-b border-white/10 flex items-center justify-between bg-dark-bg/50">
                         <div class="flex items-center gap-3">
@@ -205,19 +203,19 @@
                                 <p id="active-chat-status" class="text-[11px] text-brand-500 font-semibold">En línea · Asesora Nutricional</p>
                             </div>
                         </div>
-                        <button id="btn-reset-chat" class="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg bg-white/5">Nueva conversación</button>
+                        <button id="btn-reset-chat" class="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg bg-white/5">Reiniciar charla</button>
                     </div>
 
                     <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
 
                     <div class="px-4 py-2 bg-dark-bg/40 border-t border-white/5 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo principal es perder grasa corporal">🔥 Perder grasa</button>
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo principal es ganar masa muscular">💪 Ganar músculo</button>
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Tengo alergia/intolerancia a ciertos alimentos">🥗 Intolerancias</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Quiero sustituir la tortilla del desayuno por otra opción">🍳 Cambiar desayuno</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="¿Con qué pesos debería empezar el press banca y remo barra?">🏋️ Pesos en gym</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Tengo alergia a las nueces o pescado de mi plan">🥗 Alergias en mi plan</button>
                     </div>
 
                     <div class="p-3 border-t border-white/10 bg-dark-bg/80 flex items-center gap-2">
-                        <input type="text" id="chat-user-input" placeholder="Escribe tu respuesta o duda a tu coach..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
+                        <input type="text" id="chat-user-input" placeholder="Pregunta a tu coach sobre tus platos o ejercicios..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
                         <button id="btn-send-message" class="p-3 bg-brand-500 hover:bg-brand-600 text-black font-bold rounded-xl transition shrink-0">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </button>
@@ -302,7 +300,7 @@
         </div>
     </nav>
 
-    <!-- MODAL -->
+    <!-- MODAL DETAIL -->
     <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="glass-panel w-full max-w-lg rounded-2xl p-6 border border-white/10 relative shadow-2xl">
             <button id="modal-close" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg bg-white/5">
@@ -313,7 +311,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC CON MEMORIA REAL DE CONVERSACIÓN -->
+    <!-- JAVASCRIPT LOGIC CON ICONOS & IA CONOCEDORA DEL PLAN -->
     <script>
         const PLAN_DATA = {
             1: {
@@ -374,20 +372,49 @@
             ]
         };
 
+        // FUNCIÓN PARA GENERAR ICONOS DELICADOS EN SVG
+        function getCategoryIcon(cat) {
+            switch(cat) {
+                case 'desayuno':
+                    return `<svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>`;
+                case 'gym':
+                    return `<svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`;
+                case 'cardio':
+                    return `<svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`;
+                case 'almuerzo':
+                    return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>`;
+                case 'cena':
+                    return `<svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
+                case 'mision':
+                default:
+                    return `<svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
+            }
+        }
+
+        // PROMPTS CON CONOCIMIENTO COMPLETO DEL PLAN Y RUTINA
         const AI_COACHES = {
             nutrition: {
                 name: "Dra. Elena Ruiz",
                 title: "Nutricionista IA",
                 avatar: "E",
-                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Para poder adaptar tu menú: **¿Cuál es tu objetivo nutricional principal?** (¿Perder grasa, ganar músculo o salud general?)",
-                systemPrompt: "Eres la Dra. Elena Ruiz, nutricionista deportiva. REGLA FUNDAMENTAL: Lee los mensajes anteriores del usuario. NUNCA repitas tu saludo inicial ni la misma pregunta si el usuario ya te ha respondido. Avanza la conversación de forma natural con consejos concretos y breves."
+                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Conozco perfectamente tu menú de 3 semanas (tus tortillas de 3 huevos, pechuga con brócoli, salmón, atún, patatas y boniato). **¿Qué objetivo buscas alcanzar con este menú o qué alimentos te gustaría ajustar?**",
+                systemPrompt: `Eres la Dra. Elena Ruiz, nutricionista deportiva. CONOCES EL MENÚ DEL USUARIO:
+- Desayuno: Tortillas de 3 huevos, aguacate, yogur griego 0%, avena, plátano, tostadas integrales.
+- Almuerzo: Pechuga de pollo (200g), arroz integral/basmati, brócoli, ternera magra, patata cocida, judías verdes.
+- Cena: Salmón (200g), atún en lata, boniato, merluza, espárragos, champiñones.
+
+REGLA: Lee los mensajes anteriores del usuario. NUNCA te presentes de nuevo si ya lo has hecho. Pregúntale específicamente sobre estos alimentos para cambiarlos o adaptar calorías según sus sensaciones.`
             },
             fitness: {
                 name: "Coach Marcos Vane",
                 title: "Entrenador Personal IA",
                 avatar: "M",
-                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Para ajustar tu entrenamiento: **¿Cuál es tu nivel de experiencia en gimnasio y si tienes alguna lesión previa?**",
-                systemPrompt: "Eres el Coach Marcos Vane, entrenador de hipertrofia. REGLA FUNDAMENTAL: Lee los mensajes anteriores del usuario. NUNCA repitas tu saludo inicial ni la misma pregunta si el usuario ya te ha respondido. Da soluciones breves sobre ejercicios, cargas y variantes."
+                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Conozco tu rutina exacta de gimnasio (Press Banca 4x8, Remo con Barra 4x8, Press Militar 3x10, Jalón a Pecho, Prensa 4x8 y Peso Muerto Rumano 4x10). **¿Cómo te sientes con estas cargas o necesitas sustituir algún ejercicio hoy?**",
+                systemPrompt: `Eres el Coach Marcos Vane, entrenador personal de fuerza e hipertrofia. CONOCES LA RUTINA EXACTA DEL USUARIO:
+- Torso: Press Banca (4x8), Remo con barra (4x8), Press militar (3x10), Jalón al pecho (3x10), Press inclinado (4x12), Remo 1 mano (4x12), Elevaciones laterales (4x15).
+- Pierna: Prensa (4x8), Peso Muerto Rumano (4x10), Extensiones cuádriceps (3x12), Gemelos (3x15), Zancadas (3x12).
+
+REGLA: Lee el historial anterior. NUNCA repitas preguntas si el usuario ya te ha respondido. Aconséjale sobre pesos, técnica o ejercicios sustitutos usando los ejercicios reales de su plan.`
             }
         };
 
@@ -469,14 +496,20 @@
 
                 const card = document.createElement('div');
                 card.className = `glass-card rounded-2xl p-5 border transition ${isChecked ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/5'}`;
+                
                 card.innerHTML = `
-                    <div class="flex items-center justify-between gap-3 mb-2">
-                        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">${task.title}</span>
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <div class="flex items-center gap-2.5">
+                            <div class="p-2 bg-dark-bg/80 rounded-xl border border-white/5 shrink-0">
+                                ${getCategoryIcon(task.cat)}
+                            </div>
+                            <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">${task.title}</span>
+                        </div>
                         <input type="checkbox" id="${task.id}" class="checkbox-custom task-checkbox" ${isChecked ? 'checked' : ''}>
                     </div>
-                    <p class="text-sm ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'}">${task.text}</p>
-                    <div class="mt-3 pt-2 border-t border-white/5 flex justify-between items-center text-xs">
-                        <button class="btn-detail text-brand-500 font-semibold" data-id="${task.id}">Ver detalles & tips</button>
+                    <p class="text-sm ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'} leading-relaxed">${task.text}</p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
+                        <button class="btn-detail text-brand-500 font-semibold hover:underline" data-id="${task.id}">Ver detalles & tips</button>
                     </div>
                 `;
 
@@ -572,7 +605,6 @@
             const query = overrideText || input.value.trim();
             if (!query) return;
 
-            // 1. Mostrar y guardar el mensaje del usuario
             appendChatMessage('user', query, true);
             if (!overrideText) input.value = '';
 
@@ -581,14 +613,13 @@
 
             if (!apiKey) {
                 setTimeout(() => {
-                    appendChatMessage('ai', `Para que ${coach.name} te responda en tiempo real, introduce tu clave OpenAI API en la casilla de la izquierda y haz clic en "Guardar y Activar IA".`, false);
+                    appendChatMessage('ai', `Para que ${coach.name} te responda en vivo sobre tu plan, guarda tu clave OpenAI API en el recuadro de la izquierda.`, false);
                 }, 400);
                 return;
             }
 
             appendChatMessage('ai', 'Pensando respuesta personalizada...', false);
 
-            // 2. CONSTRUIR EL HISTORIAL COMPLETO PARA ENVIAR A OPENAI (EVITA BUCLES)
             const conversationHistory = currentState.chatHistory[currentState.activeAgent].map(msg => ({
                 role: msg.sender === 'user' ? 'user' : 'assistant',
                 content: msg.text
@@ -694,7 +725,7 @@
                 if (key) {
                     localStorage.setItem('vita_pro_openai_key', key);
                     currentState.apiKey = key;
-                    alert('¡Clave API guardada con éxito! Tu IA ya recuerda toda la conversación.');
+                    alert('¡Clave API guardada! Tus entrenadores ya te atienden en vivo.');
                 } else {
                     alert('Introduce una clave válida.');
                 }
@@ -716,7 +747,6 @@
                 document.getElementById('detail-modal').classList.add('hidden');
             });
 
-            // NAVEGACIÓN ENTRE LAS 4 SECCIONES DEL MENÚ
             const views = ['daily', 'coaches', 'grocery', 'stats'];
             views.forEach(v => {
                 const btn = document.getElementById(`nav-btn-${v}`);
