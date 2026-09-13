@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Plan de Nutrición & Fitness con IA</title>
+    <title>VITA PRO - Planificador & Fitness IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -45,7 +45,7 @@
 </head>
 <body class="min-h-screen pb-24 lg:pb-12 text-slate-200 antialiased selection:bg-brand-500 selection:text-black">
 
-    <!-- APP HEADER CON MENÚ COMPLETO -->
+    <!-- APP HEADER -->
     <header class="sticky top-0 z-40 glass-panel border-b border-white/10 px-4 lg:px-8 py-3.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -55,13 +55,13 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Proactiv IA</span>
+                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">IA Con Memoria</span>
                     </div>
                     <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Nutricional & Entrenador Personal</p>
                 </div>
             </div>
 
-            <!-- NAVEGACIÓN PRINCIPAL (DESKTOP) -->
+            <!-- NAVEGACIÓN PRINCIPAL -->
             <div class="hidden md:flex items-center bg-dark-bg p-1 rounded-xl border border-white/5">
                 <button id="nav-btn-daily" class="nav-tab active px-4 py-2 text-xs font-medium rounded-lg transition-all flex items-center gap-2 bg-brand-500 text-black shadow-md">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -155,11 +155,10 @@
             <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- SECCIÓN 2: COACHES IA (PROACTIVOS & CHAT EN VIVO) -->
+        <!-- SECCIÓN 2: COACHES IA EN VIVO -->
         <section id="view-coaches" class="space-y-6 hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
-                <!-- Selector de Coach & Clave API -->
                 <div class="space-y-4">
                     <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">Tus Entrenadores IA</h3>
                     
@@ -206,19 +205,19 @@
                                 <p id="active-chat-status" class="text-[11px] text-brand-500 font-semibold">En línea · Asesora Nutricional</p>
                             </div>
                         </div>
+                        <button id="btn-reset-chat" class="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg bg-white/5">Nueva conversación</button>
                     </div>
 
                     <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
 
-                    <!-- Botones de respuesta rápida proactiva -->
                     <div class="px-4 py-2 bg-dark-bg/40 border-t border-white/5 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo es perder grasa">🔥 Perder grasa</button>
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo es ganar músculo">💪 Ganar músculo</button>
-                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Tengo alergia/intolerancia alimentaria">🥗 Tengo intolerancias</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo principal es perder grasa corporal">🔥 Perder grasa</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Mi objetivo principal es ganar masa muscular">💪 Ganar músculo</button>
+                        <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Tengo alergia/intolerancia a ciertos alimentos">🥗 Intolerancias</button>
                     </div>
 
                     <div class="p-3 border-t border-white/10 bg-dark-bg/80 flex items-center gap-2">
-                        <input type="text" id="chat-user-input" placeholder="Escribe a tu coach o responde a sus preguntas..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
+                        <input type="text" id="chat-user-input" placeholder="Escribe tu respuesta o duda a tu coach..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
                         <button id="btn-send-message" class="p-3 bg-brand-500 hover:bg-brand-600 text-black font-bold rounded-xl transition shrink-0">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </button>
@@ -314,7 +313,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT LOGIC CON MEMORIA REAL DE CONVERSACIÓN -->
     <script>
         const PLAN_DATA = {
             1: {
@@ -380,22 +379,21 @@
                 name: "Dra. Elena Ruiz",
                 title: "Nutricionista IA",
                 avatar: "E",
-                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Para poder adaptar tus comidas a tus necesidades reales: **¿Cuál es tu objetivo principal?** (¿Perder grasa, ganar músculo o mantenimiento?)",
-                systemPrompt: "Eres la Dra. Elena Ruiz, nutricionista deportiva. Haz preguntas proactivas y breves para conocer los objetivos del usuario y sugerir cómo adaptar su dieta."
+                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Para poder adaptar tu menú: **¿Cuál es tu objetivo nutricional principal?** (¿Perder grasa, ganar músculo o salud general?)",
+                systemPrompt: "Eres la Dra. Elena Ruiz, nutricionista deportiva. REGLA FUNDAMENTAL: Lee los mensajes anteriores del usuario. NUNCA repitas tu saludo inicial ni la misma pregunta si el usuario ya te ha respondido. Avanza la conversación de forma natural con consejos concretos y breves."
             },
             fitness: {
                 name: "Coach Marcos Vane",
                 title: "Entrenador Personal IA",
                 avatar: "M",
-                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Para ajustar tu rutina de fuerza: **¿Cuál es tu nivel de experiencia en gimnasio y si tienes alguna lesión previa?**",
-                systemPrompt: "Eres el Coach Marcos Vane, entrenador de hipertrofia. Haz preguntas proactivas y breves para adaptar las cargas y ejercicios del usuario."
+                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Para ajustar tu entrenamiento: **¿Cuál es tu nivel de experiencia en gimnasio y si tienes alguna lesión previa?**",
+                systemPrompt: "Eres el Coach Marcos Vane, entrenador de hipertrofia. REGLA FUNDAMENTAL: Lee los mensajes anteriores del usuario. NUNCA repitas tu saludo inicial ni la misma pregunta si el usuario ya te ha respondido. Da soluciones breves sobre ejercicios, cargas y variantes."
             }
         };
 
         let currentState = {
             week: 1,
             day: 'lunes',
-            view: 'daily',
             activeAgent: 'nutrition',
             apiKey: localStorage.getItem('vita_pro_openai_key') || '',
             completedTasks: {},
@@ -574,7 +572,8 @@
             const query = overrideText || input.value.trim();
             if (!query) return;
 
-            appendChatMessage('user', query);
+            // 1. Mostrar y guardar el mensaje del usuario
+            appendChatMessage('user', query, true);
             if (!overrideText) input.value = '';
 
             const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
@@ -582,12 +581,23 @@
 
             if (!apiKey) {
                 setTimeout(() => {
-                    appendChatMessage('ai', `¡Gracias por tu mensaje! Para que ${coach.name} analice tu caso en tiempo real, introduce tu clave OpenAI API en la casilla de la izquierda y haz clic en "Guardar y Activar IA".`, false);
+                    appendChatMessage('ai', `Para que ${coach.name} te responda en tiempo real, introduce tu clave OpenAI API en la casilla de la izquierda y haz clic en "Guardar y Activar IA".`, false);
                 }, 400);
                 return;
             }
 
             appendChatMessage('ai', 'Pensando respuesta personalizada...', false);
+
+            // 2. CONSTRUIR EL HISTORIAL COMPLETO PARA ENVIAR A OPENAI (EVITA BUCLES)
+            const conversationHistory = currentState.chatHistory[currentState.activeAgent].map(msg => ({
+                role: msg.sender === 'user' ? 'user' : 'assistant',
+                content: msg.text
+            }));
+
+            const apiMessages = [
+                { role: 'system', content: coach.systemPrompt },
+                ...conversationHistory
+            ];
 
             try {
                 const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -598,10 +608,7 @@
                     },
                     body: JSON.stringify({
                         model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: coach.systemPrompt },
-                            { role: 'user', content: query }
-                        ],
+                        messages: apiMessages,
                         temperature: 0.7
                     })
                 });
@@ -611,12 +618,14 @@
 
                 if (data.choices && data.choices[0] && data.choices[0].message) {
                     appendChatMessage('ai', data.choices[0].message.content, true);
+                } else if (data.error) {
+                    appendChatMessage('ai', `Error de API: ${data.error.message}`, false);
                 } else {
-                    appendChatMessage('ai', 'No he podido obtener una respuesta. Verifica tu clave de API.', false);
+                    appendChatMessage('ai', 'No he podido obtener respuesta. Revisa tu clave API.', false);
                 }
             } catch (err) {
                 removeLastAiMessage();
-                appendChatMessage('ai', 'Error de conexión con la IA.', false);
+                appendChatMessage('ai', 'Error de conexión con OpenAI.', false);
             }
         }
 
@@ -668,6 +677,11 @@
                 if (e.key === 'Enter') handleUserSendMessage();
             });
 
+            document.getElementById('btn-reset-chat')?.addEventListener('click', () => {
+                currentState.chatHistory[currentState.activeAgent] = [];
+                renderChatMessages();
+            });
+
             document.querySelectorAll('.pill-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const txt = e.currentTarget.getAttribute('data-text');
@@ -680,7 +694,7 @@
                 if (key) {
                     localStorage.setItem('vita_pro_openai_key', key);
                     currentState.apiKey = key;
-                    alert('¡Clave API guardada con éxito! La IA ya responde en vivo.');
+                    alert('¡Clave API guardada con éxito! Tu IA ya recuerda toda la conversación.');
                 } else {
                     alert('Introduce una clave válida.');
                 }
