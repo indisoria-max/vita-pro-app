@@ -45,7 +45,7 @@
 </head>
 <body class="min-h-screen pb-28 md:pb-12 text-slate-200 antialiased selection:bg-brand-500 selection:text-black">
 
-    <!-- APP HEADER -->
+    <!-- HEADER -->
     <header class="sticky top-0 z-40 glass-panel border-b border-white/10 px-4 lg:px-8 py-3.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <!-- NAVEGACIÓN PRINCIPAL (DESKTOP) -->
+            <!-- NAVEGACIÓN DESKTOP -->
             <div class="hidden md:flex items-center bg-dark-bg p-1 rounded-xl border border-white/5">
                 <button id="nav-btn-daily" class="nav-tab active px-4 py-2 text-xs font-medium rounded-lg transition-all flex items-center gap-2 bg-brand-500 text-black shadow-md">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -261,22 +261,33 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: BATCH COOKING -->
+        <!-- SECCIÓN 4: BATCH COOKING QUE CAMBIA DINÁMICAMENTE POR SEMANA -->
         <section id="view-grocery" class="space-y-6 hidden">
             <div class="glass-panel rounded-2xl p-6 border border-white/10">
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                    <h2 class="text-2xl font-bold text-white">Batch Cooking & Lista de la Compra</h2>
-                    <select id="grocery-week-select" class="bg-dark-card text-xs text-white px-3 py-1.5 rounded-lg border border-white/10">
-                        <option value="1">Semana 1</option> <option value="2">Semana 2</option> <option value="3">Semana 3</option>
-                    </select>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+                    <div>
+                        <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
+                        <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
+                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes específica para cada semana de tu rotación.</p>
+                    </div>
+
+                    <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
+                        <span class="text-xs text-slate-400 pl-2">Ingredientes para:</span>
+                        <select id="grocery-week-select" class="bg-dark-card text-xs font-semibold text-white px-3 py-1.5 rounded-lg border border-white/10 outline-none focus:border-brand-500">
+                            <option value="1">Semana 1 (Clásico y Rápido)</option>
+                            <option value="2">Semana 2 (Variedad y Sabores)</option>
+                            <option value="3">Semana 3 (Práctico y Especias)</option>
+                        </select>
+                    </div>
                 </div>
-                <div id="grocery-categories" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+                <div id="grocery-categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
         </section>
 
     </main>
 
-    <!-- NAVEGACIÓN INFERIOR MÓVIL FIJA (4 BOTONES SIEMPRE VISIBLES) -->
+    <!-- NAVEGACIÓN INFERIOR MÓVIL FIJA -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 px-2 py-2.5">
         <div class="flex items-center justify-around">
             <button id="mobile-nav-daily" class="mobile-nav-item active flex flex-col items-center gap-1 text-brand-500">
@@ -309,7 +320,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT CON DATOS DE COMPRA DINÁMICOS POR SEMANA -->
     <script>
         let PLAN_DATA = {
             1: {
@@ -327,17 +338,28 @@
                         { id: "w1_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones (3x12) ➔ Gemelos (3x15).", detail: "Isquios." },
                         { id: "w1_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series plancha frontal al fallo.", detail: "Core." },
                         { id: "w1_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 150g patata cocida + Judías verdes.", detail: "Hierro hemo." },
-                        { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas atún + 100g boniato microondas + Champiñones.", detail: "Fácil digestión." }
+                        { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas atún + 100g boniato microondas + Champiñones.", detail: "Digestión ligera." }
                     ]}
                 }
             }
         };
 
+        // LISTA DE LA COMPRA ESPECÍFICA Y NUTRIDA PARA CADA SEMANA
         const GROCERY_DATA = {
             1: [
-                { category: "Proteínas", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Salmón", "4 Latas de atún"] },
-                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Nueces"] },
-                { category: "Carbohidratos & Verduras", items: ["Vasitos de arroz", "Patatas & Boniatos", "Brócoli & Judías verdes"] }
+                { category: "Proteínas Magras", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Pavo", "400g Salmón fresco", "200g Merluza", "4 Latas de atún al natural"] },
+                { category: "Lácteos & Huevos", items: ["3 Docenas de huevos frescos", "1 kg Yogur griego ligero 0%", "Nueces / Frutos secos"] },
+                { category: "Carbohidratos & Verduras", items: ["Vasitos de arroz para microondas", "Patatas medianas & Boniatos", "Brócoli fresco & Judías verdes", "Aguacates & Plátanos"] }
+            ],
+            2: [
+                { category: "Proteínas Magras", items: ["800g Tiras de pollo (salteado)", "400g Hamburguesas ternera magra", "400g Lomo ibérico", "200g Atún fresco / Sepia", "200g Bacalao", "1 Lata berberechos"] },
+                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "Almendras al natural"] },
+                { category: "Carbohidratos & Verduras", items: ["Arroz integral en vasitos", "Copos de maíz sin azúcar", "Pimientos rojos/verdes y cebollas", "Calabaza asada & Champiñones", "Fresas o frutos rojos"] }
+            ],
+            3: [
+                { category: "Proteínas Magras", items: ["800g Pechuga de pollo (al curry)", "600g Ternera picada 95% magra", "400g Solomillo pavo al pimentón", "200g Langostinos", "200g Dorada / Calamares", "2 Latas salmón o pulpo"] },
+                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Crema de cacahuete pura 100%"] },
+                { category: "Carbohidratos & Verduras", items: ["Arroz basmati en vasitos", "Avena molida & Cacao puro", "Maíz dulce & Boniatos", "Curry, Canela & Pimentón", "Crema de calabaza & Manzanas"] }
             ]
         };
 
@@ -353,8 +375,8 @@
         }
 
         const AI_COACHES = {
-            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E", systemPrompt: "Eres la Dra. Elena Ruiz. Evalúa el progreso del usuario y ajusta su menú." },
-            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M", systemPrompt: "Eres el Coach Marcos Vane. Evalúa el progreso del usuario y ajusta su rutina." }
+            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E" },
+            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M" }
         };
 
         let currentState = {
@@ -446,55 +468,25 @@
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
         }
 
-        async function runFullCycleEvaluation() {
-            const mealsScore = document.getElementById('eval-meals-score').value;
-            const gymScore = document.getElementById('eval-gym-score').value;
-            const energyScore = document.getElementById('eval-energy').value;
-            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
-
-            const container = document.getElementById('eval-report-container');
-            const reportText = document.getElementById('eval-report-text');
-            container.classList.remove('hidden');
-            reportText.innerText = "Tus Agentes Dra. Elena y Coach Marcos están analizando tu rendimiento de las últimas 3 semanas para fijar tus nuevos objetivos...";
-
-            if (!apiKey) {
-                setTimeout(() => {
-                    reportText.innerText = `Evaluación completada (Modo Asistido):\n\n• Diagnóstico: Adherencia ${mealsScore}, rendimiento gym ${gymScore}.\n• Objetivos Ciclo 2: Simplificar recetas a platos de 5 minutos y progresar 1 repetición por serie en gym.\n\n(Para informes personalizados en vivo de GPT-4o, introduce tu clave API en la pestaña Coaches IA).`;
-                }, 800);
-                return;
-            }
-
-            try {
-                const res = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({
-                        model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: 'Eres un equipo formado por una nutricionista deportiva y un entrenador personal. Evalúa los resultados de 3 semanas del usuario y define las metas y cambios concretos para su próximo ciclo.' },
-                            { role: 'user', content: `Resultado 3 Semanas: Adherencia a comidas: ${mealsScore}, Rendimiento gym: ${gymScore}, Energía: ${energyScore}.` }
-                        ]
-                    })
-                });
-                const data = await res.json();
-                if (data.choices && data.choices[0]) {
-                    reportText.innerText = data.choices[0].message.content;
-                    document.getElementById('ai-active-goals').innerHTML = `• <strong>Nuevos Objetivos IA (Ciclo 2):</strong> ${data.choices[0].message.content.substring(0, 180)}...`;
-                }
-            } catch(e) {
-                reportText.innerText = "Error de conexión al evaluar con OpenAI.";
-            }
-        }
-
+        // RENDERIZADO DINÁMICO DE LA LISTA DE LA COMPRA SEGÚN LA SEMANA SELECCIONADA
         function renderGroceryList() {
             const container = document.getElementById('grocery-categories');
-            const week = document.getElementById('grocery-week-select').value;
+            const selectedWeek = document.getElementById('grocery-week-select').value;
             container.innerHTML = '';
-            const cats = GROCERY_DATA[week] || GROCERY_DATA[1];
-            cats.forEach(c => {
+            
+            const categories = GROCERY_DATA[selectedWeek] || GROCERY_DATA[1];
+            categories.forEach(c => {
                 const card = document.createElement('div');
                 card.className = "glass-card rounded-2xl p-5 border border-white/5";
-                card.innerHTML = `<h4 class="text-xs font-bold text-white uppercase mb-3 pb-2 border-b border-white/5">${c.category}</h4><ul class="space-y-2 text-xs text-slate-300">${c.items.map(i => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${i}</li>`).join('')}</ul>`;
+                card.innerHTML = `
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/5 flex items-center justify-between">
+                        <span>${c.category}</span>
+                        <span class="text-[10px] text-brand-500 font-normal">${c.items.length} productos</span>
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        ${c.items.map(item => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${item}</li>`).join('')}
+                    </ul>
+                `;
                 container.appendChild(card);
             });
         }
@@ -508,34 +500,28 @@
                 });
             });
 
-            document.getElementById('btn-run-full-evaluation')?.addEventListener('click', runFullCycleEvaluation);
-            document.getElementById('btn-open-eval-modal')?.addEventListener('click', () => {
-                switchView('eval');
-            });
+            // EVENTO DE CAMBIO EN EL SELECTOR DE SEMANA DE COMPRA
+            document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
 
             document.getElementById('btn-save-api-key')?.addEventListener('click', () => {
                 const key = document.getElementById('api-key-input').value.trim();
                 if (key) { localStorage.setItem('vita_pro_openai_key', key); currentState.apiKey = key; alert('¡Clave API guardada con éxito!'); }
             });
 
-            // NAVEGACIÓN CONMUTABLE TANTO EN DESKTOP COMO MÓVIL
+            // NAVEGACIÓN COMPLETA TANTO DESKTOP COMO MÓVIL
             function switchView(targetView) {
                 const views = ['daily', 'eval', 'coaches', 'grocery'];
                 views.forEach(v => {
                     document.getElementById(`view-${v}`)?.classList.add('hidden');
-                    
                     const dtBtn = document.getElementById(`nav-btn-${v}`);
                     if (dtBtn) { dtBtn.classList.remove('bg-brand-500', 'text-black'); dtBtn.classList.add('text-slate-400'); }
-                    
                     const mobBtn = document.getElementById(`mobile-nav-${v}`);
                     if (mobBtn) { mobBtn.classList.remove('text-brand-500'); mobBtn.classList.add('text-slate-400'); }
                 });
 
                 document.getElementById(`view-${targetView}`)?.classList.remove('hidden');
-                
                 const activeDt = document.getElementById(`nav-btn-${targetView}`);
                 if (activeDt) { activeDt.classList.add('bg-brand-500', 'text-black'); activeDt.classList.remove('text-slate-400'); }
-                
                 const activeMob = document.getElementById(`mobile-nav-${targetView}`);
                 if (activeMob) { activeMob.classList.add('text-brand-500'); activeMob.classList.remove('text-slate-400'); }
             }
