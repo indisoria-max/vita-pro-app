@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Planificador Integrado con IA</title>
+    <title>VITA PRO - Planificador & Chat IA Integrado</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -38,6 +38,9 @@
         .checkbox-custom { appearance: none; width: 22px; height: 22px; border: 2px solid #374151; border-radius: 6px; outline: none; cursor: pointer; transition: all 0.2s ease; position: relative; background: transparent; }
         .checkbox-custom:checked { background-color: #10b981; border-color: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.4); }
         .checkbox-custom:checked::after { content: ''; position: absolute; left: 6px; top: 2px; width: 5px; height: 10px; border: solid #000; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+        .chat-bubble-ai { background: rgba(30, 35, 50, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .chat-bubble-user { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #ffffff; }
     </style>
 </head>
 <body class="min-h-screen pb-24 lg:pb-12 text-slate-200 antialiased selection:bg-brand-500 selection:text-black">
@@ -52,29 +55,29 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span id="profile-badge-summary" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Personalizado IA</span>
+                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Coaches IA en Vivo</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Nutricional Adaptativo</p>
+                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Anti-Obstáculos & Asistencia IA Integrada</p>
                 </div>
             </div>
 
             <div class="hidden md:flex items-center bg-dark-bg p-1 rounded-xl border border-white/5">
                 <button id="nav-btn-daily" class="nav-tab active px-4 py-2 text-xs font-medium rounded-lg transition-all flex items-center gap-2 bg-brand-500 text-black shadow-md">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    Plan Diario
+                    Plan & Chat IA
                 </button>
                 <button id="nav-btn-grocery" class="nav-tab px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition-all flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                     Batch Cooking
                 </button>
                 <button id="nav-btn-stats" class="nav-tab px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition-all flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 00-2 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                     Progreso
                 </button>
             </div>
 
             <div class="flex items-center gap-2">
-                <button id="btn-toggle-key" class="p-2 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition flex items-center gap-1.5" title="Ajustes API">
+                <button id="btn-toggle-key" class="p-2 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
                     <span class="hidden sm:inline">Clave API</span>
                 </button>
@@ -82,105 +85,129 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 lg:px-8 pt-6">
 
-        <!-- INTEGRATED PROACTIVE AI ASSISTANT CARD -->
-        <div id="ai-assistant-banner" class="mb-6 glass-panel rounded-2xl p-5 border border-brand-500/30 bg-gradient-to-r from-brand-900/20 via-dark-card to-dark-card relative overflow-hidden">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                
-                <div class="flex items-start gap-3.5">
-                    <div id="ai-avatar-badge" class="w-11 h-11 rounded-xl bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-lg shrink-0 border border-brand-500/30 mt-0.5">
-                        E
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h3 id="ai-coach-name" class="text-sm font-bold text-white">Dra. Elena Ruiz</h3>
-                            <span id="ai-coach-role" class="text-[10px] uppercase tracking-wider font-semibold text-brand-500 bg-brand-500/10 px-2 py-0.5 rounded-full border border-brand-500/20">Nutricionista IA</span>
-                        </div>
-                        <p id="ai-coach-question" class="text-sm text-slate-200 mt-1 leading-relaxed">
-                            ¡Hola! Para adaptar perfectamente tu plan diario: <strong>¿Cuál es tu objetivo principal ahora mismo?</strong>
-                        </p>
-                    </div>
+        <!-- GOLDEN RULE -->
+        <div class="mb-6 glass-card rounded-2xl p-4 lg:p-5 border-l-4 border-l-brand-500 relative overflow-hidden">
+            <div class="flex items-start gap-3.5">
+                <div class="p-2.5 bg-brand-500/10 text-brand-500 rounded-xl mt-0.5 shrink-0">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
-
-                <!-- Interactive Quick Response Options -->
-                <div id="ai-options-container" class="flex flex-wrap items-center gap-2 shrink-0">
-                    <button class="ai-ans-btn px-3 py-2 rounded-xl bg-brand-500 text-black font-bold text-xs hover:bg-brand-600 transition" data-ans="Perder Grasa / Definición">🔥 Perder Grasa</button>
-                    <button class="ai-ans-btn px-3 py-2 rounded-xl bg-white/10 text-white font-semibold text-xs hover:bg-white/20 transition" data-ans="Ganar Masa Muscular">💪 Ganar Músculo</button>
-                    <button class="ai-ans-btn px-3 py-2 rounded-xl bg-white/10 text-white font-semibold text-xs hover:bg-white/20 transition" data-ans="Salud y Mantenimiento">⚡ Mantenimiento</button>
-                </div>
-            </div>
-
-            <!-- Custom User Reply Input Bar -->
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">
-                <input type="text" id="ai-integrated-input" placeholder="O responde a tu coach con tus propias palabras (ej: 'Tengo alergia al pescado y entreno a las 7 AM')..." class="flex-1 bg-dark-bg text-xs text-white px-3.5 py-2.5 rounded-xl border border-white/10 outline-none focus:border-brand-500">
-                <button id="btn-send-integrated-ai" class="px-4 py-2.5 bg-brand-500 hover:bg-brand-600 text-black font-bold text-xs rounded-xl transition flex items-center gap-1">
-                    <span>Enviar</span>
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- API KEY SETTINGS MODAL -->
-        <div id="key-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-            <div class="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 relative shadow-2xl">
-                <button id="key-modal-close" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg bg-white/5">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
-                <h3 class="text-base font-bold text-white mb-2">Clave OpenAI API</h3>
-                <p class="text-xs text-slate-400 mb-4">Introduce tu clave API para que la Dra. Elena y el Coach Marcos respondan en vivo a tus preguntas.</p>
-                <input type="password" id="modal-api-key-input" placeholder="sk-proj-..." class="w-full bg-dark-bg text-xs text-white px-3.5 py-2.5 rounded-xl border border-white/10 outline-none focus:border-brand-500 mb-4">
-                <button id="modal-save-api-key" class="w-full py-2.5 bg-brand-500 hover:bg-brand-600 text-black font-bold text-xs rounded-xl transition">Guardar y Activar IA</button>
-            </div>
-        </div>
-
-        <!-- VIEW 1: DAILY PLAN -->
-        <section id="view-daily" class="space-y-6">
-            <div class="space-y-4">
-                <div class="grid grid-cols-3 gap-2 p-1.5 bg-dark-card rounded-2xl border border-white/5">
-                    <button id="week-tab-1" class="week-tab active py-3 px-3 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-2 bg-brand-500 text-black font-semibold shadow-md">
-                        <span class="text-xs uppercase tracking-wider">Semana 1</span>
-                        <span class="text-[11px] font-normal opacity-80 hidden md:inline">· Clásico y Rápido</span>
-                    </button>
-                    <button id="week-tab-2" class="week-tab py-3 px-3 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-white/5 font-medium">
-                        <span class="text-xs uppercase tracking-wider">Semana 2</span>
-                        <span class="text-[11px] font-normal opacity-70 hidden md:inline">· Variedad y Sabores</span>
-                    </button>
-                    <button id="week-tab-3" class="week-tab py-3 px-3 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-white/5 font-medium">
-                        <span class="text-xs uppercase tracking-wider">Semana 3</span>
-                        <span class="text-[11px] font-normal opacity-70 hidden md:inline">· Práctico y Especias</span>
-                    </button>
-                </div>
-                <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="days-container"></div>
-            </div>
-
-            <!-- Header status -->
-            <div class="glass-panel rounded-2xl p-5 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <div class="flex items-center gap-2.5">
-                        <span id="day-badge" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">Fuerza Torso</span>
-                        <span id="current-week-label" class="text-xs text-slate-400">Semana 1 · Enfoque Clásico</span>
-                    </div>
-                    <h2 id="day-title" class="text-2xl font-bold text-white mt-1.5">Lunes</h2>
-                </div>
-
-                <div class="flex items-center gap-4 bg-dark-bg/60 p-3 rounded-xl border border-white/5">
-                    <div class="relative w-12 h-12 flex items-center justify-center">
-                        <svg class="w-12 h-12 transform -rotate-90">
-                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-slate-800" fill="transparent" />
-                            <circle id="progress-circle" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-brand-500 transition-all duration-500" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" fill="transparent" />
-                        </svg>
-                        <span id="progress-text" class="absolute text-xs font-bold text-white">0%</span>
-                    </div>
-                    <div>
-                        <div class="text-xs text-slate-400">Completado Hoy</div>
-                        <div id="progress-count" class="text-sm font-semibold text-slate-200">0 tareas</div>
-                    </div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-brand-500 mb-1">Regla de Oro Anti-Obstáculos</h2>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Si fallas una comida o un entreno, <strong class="text-white font-semibold">no dejes el día entero</strong>. El plan se retoma en la siguiente casilla. Tus coaches IA te guiarán en el chat de abajo.
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        <!-- MAIN DASHBOARD SPLIT VIEW (DAILY TASKS + INTEGRATED LIVE CHAT) -->
+        <section id="view-daily" class="space-y-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- LEFT COLUMN: DAILY TASKS PLAN (7 COLS) -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-3 gap-2 p-1.5 bg-dark-card rounded-2xl border border-white/5">
+                            <button id="week-tab-1" class="week-tab active py-2.5 px-2 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-1 bg-brand-500 text-black font-semibold shadow-md">
+                                <span class="text-xs uppercase tracking-wider">Semana 1</span>
+                            </button>
+                            <button id="week-tab-2" class="week-tab py-2.5 px-2 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-1 text-slate-400 hover:text-white font-medium">
+                                <span class="text-xs uppercase tracking-wider">Semana 2</span>
+                            </button>
+                            <button id="week-tab-3" class="week-tab py-2.5 px-2 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-1 text-slate-400 hover:text-white font-medium">
+                                <span class="text-xs uppercase tracking-wider">Semana 3</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="days-container"></div>
+                    </div>
+
+                    <!-- Day Status Header -->
+                    <div class="glass-panel rounded-2xl p-5 border border-white/10 flex items-center justify-between gap-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span id="day-badge" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">Fuerza Torso</span>
+                                <span id="current-week-label" class="text-xs text-slate-400">Semana 1</span>
+                            </div>
+                            <h2 id="day-title" class="text-2xl font-bold text-white mt-1">Lunes</h2>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-dark-bg/60 p-2.5 rounded-xl border border-white/5">
+                            <div class="relative w-10 h-10 flex items-center justify-center">
+                                <svg class="w-10 h-10 transform -rotate-90">
+                                    <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="3.5" class="text-slate-800" fill="transparent" />
+                                    <circle id="progress-circle" cx="20" cy="20" r="16" stroke="currentColor" stroke-width="3.5" class="text-brand-500 transition-all duration-500" stroke-dasharray="100.5" stroke-dashoffset="100.5" stroke-linecap="round" fill="transparent" />
+                                </svg>
+                                <span id="progress-text" class="absolute text-[11px] font-bold text-white">0%</span>
+                            </div>
+                            <div class="text-xs">
+                                <div class="text-slate-400">Completado</div>
+                                <div id="progress-count" class="font-semibold text-slate-200">0 tareas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Grid -->
+                    <div id="tasks-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: INTEGRATED LIVE AI CHAT (5 COLS) -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel rounded-2xl border border-white/10 flex flex-col h-[650px] sticky top-20 overflow-hidden shadow-xl">
+                        
+                        <!-- Chat Header & Coach Switcher -->
+                        <div class="p-4 border-b border-white/10 bg-dark-bg/60 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-wider">Asistente IA en Directo</h3>
+                                </div>
+                                <span class="text-[10px] text-slate-400">Preguntas proactivas</span>
+                            </div>
+
+                            <!-- Coach Selector Buttons -->
+                            <div class="grid grid-cols-2 gap-2 p-1 bg-dark-card rounded-xl border border-white/5">
+                                <button id="switch-coach-elena" class="py-2 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-brand-500 text-black shadow-md">
+                                    <span>Dra. Elena</span>
+                                    <span class="text-[10px] font-normal opacity-80">(Nutrición)</span>
+                                </button>
+                                <button id="switch-coach-marcos" class="py-2 px-3 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5">
+                                    <span>Coach Marcos</span>
+                                    <span class="text-[10px] font-normal opacity-70">(Gym)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Chat Messages Container -->
+                        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3">
+                            <!-- Messages injected here -->
+                        </div>
+
+                        <!-- Quick Answer Pills -->
+                        <div id="quick-pills-container" class="px-4 py-2 border-t border-white/5 bg-dark-bg/40 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+                            <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Quiero perder grasa">🔥 Perder grasa</button>
+                            <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Quiero ganar músculo">💪 Ganar músculo</button>
+                            <button class="pill-btn shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition" data-text="Sustituir ingrediente">🥗 Cambiar menú</button>
+                        </div>
+
+                        <!-- Chat Input Footer -->
+                        <div class="p-3 border-t border-white/10 bg-dark-bg/90 flex items-center gap-2">
+                            <input type="text" id="chat-user-input" placeholder="Responde a tu coach o hazle una pregunta..." class="flex-1 bg-dark-card text-xs text-white px-3.5 py-2.5 rounded-xl border border-white/10 outline-none focus:border-brand-500">
+                            <button id="btn-send-message" class="p-2.5 bg-brand-500 hover:bg-brand-600 text-black font-bold rounded-xl transition shrink-0">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
         <!-- VIEW 2: BATCH COOKING -->
@@ -220,23 +247,18 @@
 
     </main>
 
-    <!-- MOBILE NAV -->
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 px-4 py-2">
-        <div class="flex items-center justify-around">
-            <button id="mobile-nav-daily" class="mobile-nav-item active flex flex-col items-center gap-1 text-brand-500">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                <span class="text-[10px] font-semibold">Diario</span>
+    <!-- API KEY SETTINGS MODAL -->
+    <div id="key-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 relative shadow-2xl">
+            <button id="key-modal-close" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg bg-white/5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <button id="mobile-nav-grocery" class="mobile-nav-item flex flex-col items-center gap-1 text-slate-400">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-                <span class="text-[10px] font-semibold">Compra</span>
-            </button>
-            <button id="mobile-nav-stats" class="mobile-nav-item flex flex-col items-center gap-1 text-slate-400">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                <span class="text-[10px] font-semibold">Stats</span>
-            </button>
+            <h3 class="text-base font-bold text-white mb-2">Clave OpenAI API</h3>
+            <p class="text-xs text-slate-400 mb-4">Introduce tu clave API (empieza por sk-proj-...) para habilitar las respuestas en vivo de tus coaches.</p>
+            <input type="password" id="modal-api-key-input" placeholder="sk-proj-..." class="w-full bg-dark-bg text-xs text-white px-3.5 py-2.5 rounded-xl border border-white/10 outline-none focus:border-brand-500 mb-4">
+            <button id="modal-save-api-key" class="w-full py-2.5 bg-brand-500 hover:bg-brand-600 text-black font-bold text-xs rounded-xl transition">Guardar y Activar IA</button>
         </div>
-    </nav>
+    </div>
 
     <!-- MODAL DETAIL -->
     <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -298,26 +320,8 @@
                     ]}
                 }
             },
-            2: {
-                title: "Semana 2: Enfoque Variedad y Sabores",
-                days: {
-                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
-                        { id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys y albahaca + 1 tostada.", detail: "Sabor fresco." },
-                        { id: "w2_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón (3x10).", detail: "Progresión de cargas." },
-                        { id: "w2_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta paso rápido.", detail: "Cardio moderado." },
-                        { id: "w2_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras pollo salteadas con pimientos y cebolla + arroz integral.", detail: "Rico en vitamina C." },
-                        { id: "w2_lun_cen", cat: "cena", title: "Cena", text: "200g Atún fresco a la plancha + 150g puré de patata casero.", detail: "Recuperación nocturna." }
-                    ]}
-                }
-            },
-            3: {
-                title: "Semana 3: Enfoque Práctico y Especias",
-                days: {
-                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
-                        { id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + 1 tostada crema cacahuete + manzana.", detail: "Energía sostenida." }
-                    ]}
-                }
-            }
+            2: { title: "Semana 2: Enfoque Variedad y Sabores", days: { lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys y albahaca + 1 tostada.", detail: "Sabor fresco." }] } } },
+            3: { title: "Semana 3: Enfoque Práctico y Especias", days: { lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + 1 tostada crema cacahuete + manzana.", detail: "Energía sostenida." }] } } }
         };
 
         const GROCERY_DATA = {
@@ -328,36 +332,28 @@
             ]
         };
 
-        // PROACTIVE INTERACTIVE AI STEPS
-        const INTERVIEW_STEPS = [
-            {
-                coach: "nutrition",
+        const AI_COACHES = {
+            nutrition: {
                 name: "Dra. Elena Ruiz",
                 role: "Nutricionista IA",
-                avatar: "E",
-                question: "¡Hola! Para adaptar perfectamente tu plan diario: <strong>¿Cuál es tu objetivo principal ahora mismo?</strong>",
-                options: ["🔥 Perder Grasa", "💪 Ganar Músculo", "⚡ Mantenimiento"],
-                nextPrompt: "Genial. ¿Padeces alguna alergia, intolerancia o alimentos que prefieras evitar?"
+                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Para adaptar tus comidas a tus necesidades reales: **¿Cuál es tu objetivo principal?** (¿Perder grasa, ganar músculo o mantenimiento?)",
+                systemPrompt: "Eres la Dra. Elena Ruiz, nutricionista deportiva experta. Haz preguntas proactivas y breves para conocer los objetivos del usuario y adaptar su dieta."
             },
-            {
-                coach: "fitness",
+            fitness: {
                 name: "Coach Marcos Vane",
                 role: "Entrenador Personal IA",
-                avatar: "M",
-                question: "¡Excelente! Soy el Coach Marcos. Para ajustar tus cargas: <strong>¿Cuál es tu nivel de experiencia en gimnasio?</strong>",
-                options: ["🐣 Principiante (0-6 meses)", "🏋️ Intermedio (1-3 años)", "⚡ Avanzado"],
-                nextPrompt: "Perfecto. ¿Tienes alguna molestia articular o falta de equipamiento en tu gimnasio?"
+                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Para ajustar tu rutina: **¿Cuál es tu nivel de experiencia en el gimnasio y si tienes alguna lesión previa?**",
+                systemPrompt: "Eres el Coach Marcos Vane, entrenador de hipertrofia. Haz preguntas proactivas y breves para adaptar las cargas y ejercicios del usuario."
             }
-        ];
+        };
 
-        let currentStepIndex = 0;
         let currentState = {
             week: 1,
             day: 'lunes',
-            view: 'daily',
+            activeCoach: 'nutrition',
             apiKey: localStorage.getItem('vita_pro_openai_key') || '',
-            userGoal: localStorage.getItem('vita_pro_user_goal') || 'Sin personalizar',
-            completedTasks: {}
+            completedTasks: {},
+            chatHistory: { nutrition: [], fitness: [] }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -366,87 +362,17 @@
             renderCurrentDayTasks();
             renderGroceryList();
             updateProgressStats();
-            renderInterviewStep();
+            initIntegratedChat();
             setupEventListeners();
         });
 
         function loadFromLocalStorage() {
             const saved = localStorage.getItem('vita_pro_v2_progress');
             if (saved) { try { currentState.completedTasks = JSON.parse(saved); } catch(e){} }
-            if (currentState.userGoal !== 'Sin personalizar') {
-                document.getElementById('profile-badge-summary').innerText = currentState.userGoal;
-            }
         }
 
         function saveToLocalStorage() {
             localStorage.setItem('vita_pro_v2_progress', JSON.stringify(currentState.completedTasks));
-        }
-
-        function renderInterviewStep() {
-            const step = INTERVIEW_STEPS[currentStepIndex % INTERVIEW_STEPS.length];
-            document.getElementById('ai-avatar-badge').innerText = step.avatar;
-            document.getElementById('ai-coach-name').innerText = step.name;
-            document.getElementById('ai-coach-role').innerText = step.role;
-            document.getElementById('ai-coach-question').innerHTML = step.question;
-
-            const optsContainer = document.getElementById('ai-options-container');
-            optsContainer.innerHTML = '';
-            step.options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "ai-ans-btn px-3 py-2 rounded-xl bg-white/10 text-white font-semibold text-xs hover:bg-brand-500 hover:text-black transition";
-                btn.innerText = opt;
-                btn.addEventListener('click', () => handleOptionSelect(opt));
-                optsContainer.appendChild(btn);
-            });
-        }
-
-        async function handleOptionSelect(optionText) {
-            currentState.userGoal = optionText;
-            localStorage.setItem('vita_pro_user_goal', optionText);
-            document.getElementById('profile-badge-summary').innerText = optionText;
-
-            // Advance interview step
-            currentStepIndex++;
-            const step = INTERVIEW_STEPS[currentStepIndex % INTERVIEW_STEPS.length];
-            document.getElementById('ai-coach-question').innerHTML = `¡Anotado! ${step.nextPrompt || step.question}`;
-            
-            // Perform real live AI query if API Key exists
-            if (currentState.apiKey) {
-                await fetchLiveAiAdaptation(`El usuario ha seleccionado el objetivo: "${optionText}". Da una sugerencia breve de 2 frases sobre cómo adaptar su plan diario.`);
-            }
-        }
-
-        async function fetchLiveAiAdaptation(userMessage) {
-            if (!currentState.apiKey) return;
-
-            const questionElem = document.getElementById('ai-coach-question');
-            const originalText = questionElem.innerHTML;
-            questionElem.innerHTML = "<em>Tu Coach IA está analizando tu respuesta...</em>";
-
-            try {
-                const res = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${currentState.apiKey}`
-                    },
-                    body: JSON.stringify({
-                        model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: 'Eres un coach nutricional y deportivo de élite. Responde de forma concisa, motivadora y clara en 2 frases.' },
-                            { role: 'user', content: userMessage }
-                        ]
-                    })
-                });
-                const data = await res.json();
-                if (data.choices && data.choices[0]) {
-                    questionElem.innerHTML = `<strong>Coach IA:</strong> "${data.choices[0].message.content}"`;
-                } else {
-                    questionElem.innerHTML = originalText;
-                }
-            } catch(e) {
-                questionElem.innerHTML = originalText;
-            }
         }
 
         function renderDaySelector() {
@@ -466,7 +392,7 @@
                 const completedCount = dayObj.tasks.filter(t => currentState.completedTasks[t.id]).length;
 
                 const btn = document.createElement('button');
-                btn.className = `shrink-0 px-4 py-2.5 rounded-xl border transition-all flex flex-col items-center min-w-[70px] ${
+                btn.className = `shrink-0 px-3.5 py-2 rounded-xl border transition-all flex flex-col items-center min-w-[64px] ${
                     isActive ? 'bg-brand-500/15 border-brand-500 text-white font-bold shadow-md' : 'bg-dark-card border-white/5 text-slate-400 hover:text-white'
                 }`;
                 btn.innerHTML = `<span class="text-xs uppercase">${day.label}</span><span class="text-[10px] opacity-70 mt-0.5">${completedCount}/${dayObj.tasks.length}</span>`;
@@ -496,14 +422,14 @@
                 if (isChecked) completedCount++;
 
                 const card = document.createElement('div');
-                card.className = `glass-card rounded-2xl p-5 border transition ${isChecked ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/5'}`;
+                card.className = `glass-card rounded-2xl p-4 border transition ${isChecked ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/5'}`;
                 card.innerHTML = `
-                    <div class="flex items-center justify-between gap-3 mb-2">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
                         <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">${task.title}</span>
                         <input type="checkbox" id="${task.id}" class="checkbox-custom task-checkbox" ${isChecked ? 'checked' : ''}>
                     </div>
-                    <p class="text-sm ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'}">${task.text}</p>
-                    <div class="mt-3 pt-2 border-t border-white/5 flex justify-between items-center text-xs">
+                    <p class="text-xs ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'} leading-relaxed">${task.text}</p>
+                    <div class="mt-2.5 pt-2 border-t border-white/5 flex justify-between items-center text-[11px]">
                         <button class="btn-detail text-brand-500 font-semibold" data-id="${task.id}">Ver detalles & tips</button>
                     </div>
                 `;
@@ -527,9 +453,119 @@
             });
 
             const percentage = dayInfo.tasks.length > 0 ? Math.round((completedCount / dayInfo.tasks.length) * 100) : 0;
-            document.getElementById('progress-circle').style.strokeDashoffset = 125.6 - (percentage / 100) * 125.6;
+            document.getElementById('progress-circle').style.strokeDashoffset = 100.5 - (percentage / 100) * 100.5;
             document.getElementById('progress-text').innerText = `${percentage}%`;
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
+        }
+
+        // CHAT SYSTEM
+        function initIntegratedChat() {
+            switchCoach(currentState.activeCoach);
+        }
+
+        function switchCoach(coachKey) {
+            currentState.activeCoach = coachKey;
+            const coach = AI_COACHES[coachKey];
+
+            const btnElena = document.getElementById('switch-coach-elena');
+            const btnMarcos = document.getElementById('switch-coach-marcos');
+
+            if (coachKey === 'nutrition') {
+                btnElena.className = "py-2 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-brand-500 text-black shadow-md";
+                btnMarcos.className = "py-2 px-3 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5";
+            } else {
+                btnMarcos.className = "py-2 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-purple-500 text-black shadow-md";
+                btnElena.className = "py-2 px-3 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5";
+            }
+
+            renderChatMessages();
+        }
+
+        function renderChatMessages() {
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = '';
+            const history = currentState.chatHistory[currentState.activeCoach];
+            const coach = AI_COACHES[currentState.activeCoach];
+
+            if (history.length === 0) {
+                appendChatMessage('ai', coach.welcome, false);
+            } else {
+                history.forEach(msg => appendChatMessage(msg.sender, msg.text, false));
+            }
+        }
+
+        function appendChatMessage(sender, text, save = true) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+
+            msgDiv.innerHTML = `
+                <div class="max-w-[85%] rounded-2xl p-3 text-xs ${sender === 'user' ? 'chat-bubble-user font-medium' : 'chat-bubble-ai text-slate-200'} shadow-md">
+                    <p class="leading-relaxed whitespace-pre-line">${text}</p>
+                </div>
+            `;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+
+            if (save) {
+                currentState.chatHistory[currentState.activeCoach].push({ sender, text });
+            }
+        }
+
+        function removeLastAiMessage() {
+            const container = document.getElementById('chat-messages');
+            if (container.lastChild) container.removeChild(container.lastChild);
+        }
+
+        async function handleUserSendMessage(overrideText = null) {
+            const input = document.getElementById('chat-user-input');
+            const query = overrideText || input.value.trim();
+            if (!query) return;
+
+            appendChatMessage('user', query);
+            if (!overrideText) input.value = '';
+
+            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
+            const coach = AI_COACHES[currentState.activeCoach];
+
+            if (!apiKey) {
+                setTimeout(() => {
+                    appendChatMessage('ai', `¡Gracias por responder! Para que ${coach.name} analice tu respuesta en tiempo real, haz clic en "Clave API" arriba a la derecha e introduce tu clave OpenAI.`, false);
+                }, 400);
+                return;
+            }
+
+            appendChatMessage('ai', 'Procesando tu respuesta...', false);
+
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-4o-mini',
+                        messages: [
+                            { role: 'system', content: coach.systemPrompt },
+                            { role: 'user', content: query }
+                        ],
+                        temperature: 0.7
+                    })
+                });
+
+                const data = await response.json();
+                removeLastAiMessage();
+
+                if (data.choices && data.choices[0] && data.choices[0].message) {
+                    appendChatMessage('ai', data.choices[0].message.content, true);
+                } else {
+                    appendChatMessage('ai', 'Error al procesar la respuesta. Verifica tu clave API.', false);
+                }
+            } catch (err) {
+                removeLastAiMessage();
+                appendChatMessage('ai', 'Error de conexión a la IA.', false);
+            }
         }
 
         function renderGroceryList() {
@@ -572,13 +608,19 @@
                 });
             });
 
-            document.getElementById('btn-send-integrated-ai')?.addEventListener('click', () => {
-                const input = document.getElementById('ai-integrated-input');
-                const val = input.value.trim();
-                if (val) {
-                    handleOptionSelect(val);
-                    input.value = '';
-                }
+            document.getElementById('switch-coach-elena')?.addEventListener('click', () => switchCoach('nutrition'));
+            document.getElementById('switch-coach-marcos')?.addEventListener('click', () => switchCoach('fitness'));
+
+            document.getElementById('btn-send-message')?.addEventListener('click', () => handleUserSendMessage());
+            document.getElementById('chat-user-input')?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') handleUserSendMessage();
+            });
+
+            document.querySelectorAll('.pill-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const txt = e.currentTarget.getAttribute('data-text');
+                    handleUserSendMessage(txt);
+                });
             });
 
             document.getElementById('btn-toggle-key')?.addEventListener('click', () => {
@@ -600,29 +642,13 @@
                     localStorage.setItem('vita_pro_openai_key', key);
                     currentState.apiKey = key;
                     document.getElementById('key-modal').classList.add('hidden');
-                    alert('¡Clave API guardada! Tu asistente responderá en tiempo real.');
+                    alert('¡Clave API guardada con éxito!');
                 }
             });
 
             document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
             document.getElementById('modal-close')?.addEventListener('click', () => {
                 document.getElementById('detail-modal').classList.add('hidden');
-            });
-
-            const views = ['daily', 'grocery', 'stats'];
-            views.forEach(v => {
-                const btn = document.getElementById(`nav-btn-${v}`);
-                const mobBtn = document.getElementById(`mobile-nav-${v}`);
-                const handler = () => {
-                    views.forEach(other => {
-                        document.getElementById(`view-${other}`).classList.add('hidden');
-                        document.getElementById(`nav-btn-${other}`)?.classList.remove('bg-brand-500', 'text-black');
-                    });
-                    document.getElementById(`view-${v}`).classList.remove('hidden');
-                    btn?.classList.add('bg-brand-500', 'text-black');
-                };
-                btn?.addEventListener('click', handler);
-                mobBtn?.addEventListener('click', handler);
             });
         }
     </script>
