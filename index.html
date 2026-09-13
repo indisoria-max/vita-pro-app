@@ -1,13 +1,14 @@
-<html data-type="html" data-identifier="e4d5fecd-6ec0-4968-94ed-bff5221de2d5" data-title="VITA PRO - Plan de Nutrición y Fitness" data-version="1" width="1200" height="800"><head>
+<html lang="es" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Planificador Anti-Obstáculos</title>
+    <title>VITA PRO - Planificador & Agentes IA Fitness</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -47,7 +48,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -59,20 +59,16 @@
             background: #1f2330;
             border-radius: 9999px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #374151;
-        }
 
-        /* Glassmorphism elements */
         .glass-panel {
-            background: rgba(18, 20, 28, 0.75);
+            background: rgba(18, 20, 28, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .glass-card {
-            background: rgba(22, 25, 36, 0.6);
+            background: rgba(22, 25, 36, 0.65);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,7 +76,6 @@
 
         .glass-card:hover {
             border-color: rgba(16, 185, 129, 0.3);
-            transform: translateY(-2px);
         }
 
         .checkbox-custom {
@@ -114,8 +109,15 @@
             transform: rotate(45deg);
         }
 
-        .badge-glow {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        .chat-bubble-ai {
+            background: rgba(30, 35, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .chat-bubble-user {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #ffffff;
         }
     </style>
 </head>
@@ -129,38 +131,42 @@
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center shadow-lg shadow-brand-500/20">
                     <svg class="w-5 h-5 text-black stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Anti-Obstáculos</span>
+                        <span class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">IA Coaches</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Nutricional &amp; Entrenamiento Rotativo</p>
+                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Anti-Obstáculos & Nutrición Personalizada</p>
                 </div>
             </div>
 
             <!-- View Switcher (Desktop) -->
             <div class="hidden md:flex items-center bg-dark-bg p-1 rounded-xl border border-white/5">
                 <button id="nav-btn-daily" class="nav-tab active px-4 py-2 text-xs font-medium rounded-lg transition-all flex items-center gap-2 bg-brand-500 text-black shadow-md">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     Plan Diario
                 </button>
+                <button id="nav-btn-ai" class="nav-tab px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition-all flex items-center gap-2">
+                    <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                    Coaches IA
+                </button>
                 <button id="nav-btn-grocery" class="nav-tab px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition-all flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                    Batch Cooking &amp; Compra
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                    Batch Cooking
                 </button>
                 <button id="nav-btn-stats" class="nav-tab px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition-all flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                     Progreso
                 </button>
             </div>
 
-            <!-- Global Action (Reset Progress) -->
+            <!-- Global Action -->
             <div class="flex items-center gap-2">
-                <button id="btn-reset-day" class="p-2 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition flex items-center gap-1.5" title="Reiniciar día actual">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                <button id="btn-reset-day" class="p-2 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition flex items-center gap-1.5" title="Reiniciar día">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                     <span class="hidden sm:inline">Reiniciar Día</span>
                 </button>
             </div>
@@ -172,15 +178,14 @@
 
         <!-- GOLDEN RULE BANNER -->
         <div class="mb-6 glass-card rounded-2xl p-4 lg:p-5 border-l-4 border-l-brand-500 relative overflow-hidden group">
-            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition-all duration-500 pointer-events-none"></div>
             <div class="flex items-start gap-3.5">
                 <div class="p-2.5 bg-brand-500/10 text-brand-500 rounded-xl mt-0.5 shrink-0">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
                 <div>
                     <h2 class="text-xs font-bold uppercase tracking-wider text-brand-500 mb-1">Regla de Oro Anti-Obstáculos</h2>
-                    <p class="text-sm text-slate-300 leading-relaxed font-normal">
-                        Si fallas una comida o un entrenamiento, <strong class="text-white font-semibold">no abandones el día entero</strong>. El plan se retoma con éxito inmediato en la siguiente casilla. ¡Mantén el impulso!
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Si fallas una comida o un entreno, <strong class="text-white font-semibold">no dejes el día entero</strong>. El plan se retoma con éxito inmediato en la siguiente casilla. Tus Agentes IA te ayudarán a adaptar tus necesidades.
                     </p>
                 </div>
             </div>
@@ -189,10 +194,8 @@
         <!-- VIEW 1: DAILY PLAN -->
         <section id="view-daily" class="space-y-6">
             
-            <!-- CONTROLS BAR: WEEK & DAY SELECTOR -->
             <div class="space-y-4">
-                
-                <!-- Week Tabs -->
+                <!-- Week Selector -->
                 <div class="grid grid-cols-3 gap-2 p-1.5 bg-dark-card rounded-2xl border border-white/5">
                     <button id="week-tab-1" class="week-tab active py-3 px-3 rounded-xl text-center transition-all flex flex-col md:flex-row items-center justify-center gap-2 bg-brand-500 text-black font-semibold shadow-md">
                         <span class="text-xs uppercase tracking-wider">Semana 1</span>
@@ -208,14 +211,11 @@
                     </button>
                 </div>
 
-                <!-- Days Selector Scrollbar -->
-                <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar scroll-smooth" id="days-container">
-                    <!-- Day Buttons injected via Javascript -->
-                </div>
-
+                <!-- Days Bar -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="days-container"></div>
             </div>
 
-            <!-- DAY STATUS HEADER -->
+            <!-- Header status -->
             <div class="glass-panel rounded-2xl p-5 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <div class="flex items-center gap-2.5">
@@ -225,41 +225,118 @@
                     <h2 id="day-title" class="text-2xl font-bold text-white mt-1.5">Lunes</h2>
                 </div>
 
-                <!-- Day Completion Ring / Progress -->
                 <div class="flex items-center gap-4 bg-dark-bg/60 p-3 rounded-xl border border-white/5">
                     <div class="relative w-12 h-12 flex items-center justify-center">
                         <svg class="w-12 h-12 transform -rotate-90">
-                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-slate-800" fill="transparent"></circle>
-                            <circle id="progress-circle" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-brand-500 transition-all duration-500" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" fill="transparent"></circle>
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-slate-800" fill="transparent" />
+                            <circle id="progress-circle" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-brand-500 transition-all duration-500" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" fill="transparent" />
                         </svg>
                         <span id="progress-text" class="absolute text-xs font-bold text-white">0%</span>
                     </div>
                     <div>
                         <div class="text-xs text-slate-400">Completado Hoy</div>
-                        <div id="progress-count" class="text-sm font-semibold text-slate-200">0 de 5 bloques</div>
+                        <div id="progress-count" class="text-sm font-semibold text-slate-200">0 tareas</div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARDS GRID FOR CURRENT DAY -->
-            <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Task Cards will be dynamically rendered here -->
-            </div>
+            <!-- Task Grid -->
+            <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
         </section>
 
-        <!-- VIEW 2: BATCH COOKING & GROCERY LIST -->
+        <!-- VIEW 2: AI COACHING HUB -->
+        <section id="view-ai" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Sidebar Agents -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">Tus Coaches Personales IA</h3>
+                    
+                    <div id="agent-card-nutrition" class="agent-card active glass-card rounded-2xl p-4 border border-brand-500/40 bg-brand-500/10 cursor-pointer transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h4 class="text-sm font-bold text-white">Dra. Elena Ruiz</h4>
+                                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                                </div>
+                                <p class="text-xs text-brand-500 font-semibold">Nutricionista IA</p>
+                                <p class="text-[11px] text-slate-400 mt-1">Especialista en menús adaptados y calorías.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="agent-card-fitness" class="agent-card glass-card rounded-2xl p-4 border border-white/5 hover:border-purple-500/30 cursor-pointer transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h4 class="text-sm font-bold text-white">Coach Marcos Vane</h4>
+                                    <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                                </div>
+                                <p class="text-xs text-purple-400 font-semibold">Entrenador Personal IA</p>
+                                <p class="text-[11px] text-slate-400 mt-1">Sustitución de ejercicios y técnica de gimnasio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-4 border border-white/5 space-y-2">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Preguntas Sugeridas</h4>
+                        <button class="quick-prompt-btn w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 transition flex items-center justify-between">
+                            <span>"Quiero adaptar mis calorías a mi objetivo"</span>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                        <button class="quick-prompt-btn w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 transition flex items-center justify-between">
+                            <span>"No tengo prensa en mi gimnasio, ¿qué hago?"</span>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                        <button class="quick-prompt-btn w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 transition flex items-center justify-between">
+                            <span>"Cambiar salmón por otra opción con proteína"</span>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Box -->
+                <div class="lg:col-span-2 glass-panel rounded-2xl border border-white/10 flex flex-col h-[560px] overflow-hidden">
+                    <div class="p-4 border-b border-white/10 flex items-center justify-between bg-dark-bg/50">
+                        <div class="flex items-center gap-3">
+                            <div id="active-chat-avatar" class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">E</div>
+                            <div>
+                                <h3 id="active-chat-name" class="text-sm font-bold text-white">Dra. Elena Ruiz</h3>
+                                <p id="active-chat-status" class="text-[11px] text-brand-500 font-semibold">En línea · Asesora Nutricional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
+
+                    <div class="p-3 border-t border-white/10 bg-dark-bg/80 flex items-center gap-2">
+                        <input type="text" id="chat-user-input" placeholder="Pregunta a tu coach sobre tus comidas o ejercicios..." class="flex-1 bg-dark-card text-xs text-white px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-brand-500">
+                        <button id="btn-send-message" class="p-3 bg-brand-500 hover:bg-brand-600 text-black font-bold rounded-xl transition shrink-0">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VIEW 3: BATCH COOKING -->
         <section id="view-grocery" class="space-y-6 hidden">
-            
             <div class="glass-panel rounded-2xl p-6 border border-white/10">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
                     <div>
                         <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
-                        <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking &amp; Lista de la Compra</h2>
+                        <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
                         <p class="text-xs text-slate-400 mt-1">Organiza tus ingredientes por adelantado para asegurar el éxito semanal sin improvisar.</p>
                     </div>
 
-                    <!-- Selected Week Display for Grocery -->
                     <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
                         <span class="text-xs text-slate-400 pl-2">Ingredientes para:</span>
                         <select id="grocery-week-select" class="bg-dark-card text-xs font-semibold text-white px-3 py-1.5 rounded-lg border border-white/10 outline-none focus:border-brand-500">
@@ -270,553 +347,314 @@
                     </div>
                 </div>
 
-                <!-- BATCH COOKING INSTRUCTIONS CARD -->
-                <div class="mb-8 bg-gradient-to-r from-brand-900/30 to-dark-card p-5 rounded-2xl border border-brand-500/20">
-                    <div class="flex items-start gap-3">
-                        <div class="p-2 bg-brand-500/20 text-brand-500 rounded-xl mt-0.5">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Protocolo Domingo (40 Minutos de Preparación)</h3>
-                            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                                1. Cuece patatas y asa boniatos para 3-4 días.<br>
-                                2. Asegura vasitos de arroz integral/basmati en despensa.<br>
-                                3. Deja carnes magras envasadas o troceadas en la nevera.<br>
-                                4. Prepara cremas de verduras caseras (calabacín, puerro o calabaza).
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- GROCERY CATEGORIES -->
-                <div id="grocery-categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Grocery list items dynamically populated -->
-                </div>
-
+                <div id="grocery-categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
-
         </section>
 
-        <!-- VIEW 3: STATS & OVERVIEW -->
+        <!-- VIEW 4: STATS -->
         <section id="view-stats" class="space-y-6 hidden">
-            
             <div class="glass-panel rounded-2xl p-6 border border-white/10">
                 <h2 class="text-2xl font-bold text-white mb-1">Métricas de Consistencia</h2>
                 <p class="text-xs text-slate-400 mb-6">Tu progreso acumulado en las 3 semanas de rotación.</p>
 
-                <!-- STATS CARDS GRID -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs text-slate-400 font-medium">Puntos Totales</span>
-                            <div class="p-2 bg-brand-500/10 text-brand-500 rounded-lg">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                            </div>
-                        </div>
-                        <div id="stat-completed-total" class="text-2xl font-extrabold text-white">0</div>
-                        <p class="text-[11px] text-slate-500 mt-1">Casillas completadas de 75</p>
+                        <span class="text-xs text-slate-400 font-medium">Puntos Totales</span>
+                        <div id="stat-completed-total" class="text-2xl font-extrabold text-white mt-1">0</div>
                     </div>
-
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs text-slate-400 font-medium">% Adherencia Global</span>
-                            <div class="p-2 bg-brand-accent/10 text-brand-accent rounded-lg">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                            </div>
-                        </div>
-                        <div id="stat-global-percentage" class="text-2xl font-extrabold text-white">0%</div>
-                        <p class="text-[11px] text-slate-500 mt-1">Objetivo recomendado: &gt; 80%</p>
+                        <span class="text-xs text-slate-400 font-medium">% Adherencia Global</span>
+                        <div id="stat-global-percentage" class="text-2xl font-extrabold text-white mt-1">0%</div>
                     </div>
-
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs text-slate-400 font-medium">Entrenamientos Gym</span>
-                            <div class="p-2 bg-purple-500/10 text-purple-400 rounded-lg">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11.4"></path></svg>
-                            </div>
-                        </div>
-                        <div id="stat-gym-count" class="text-2xl font-extrabold text-white">0/12</div>
-                        <p class="text-[11px] text-slate-500 mt-1">Sesiones completadas</p>
+                        <span class="text-xs text-slate-400 font-medium">Entrenamientos Gym</span>
+                        <div id="stat-gym-count" class="text-2xl font-extrabold text-white mt-1">0/12</div>
                     </div>
-
                     <div class="glass-card rounded-2xl p-4 border border-white/5">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs text-slate-400 font-medium">Nutrición Cumplida</span>
-                            <div class="p-2 bg-amber-500/10 text-amber-400 rounded-lg">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path></svg>
-                            </div>
-                        </div>
-                        <div id="stat-meals-count" class="text-2xl font-extrabold text-white">0/45</div>
-                        <p class="text-[11px] text-slate-500 mt-1">Comidas principales listas</p>
-                    </div>
-
-                </div>
-
-                <!-- WEEKS BREAKDOWN PROGRESS BARS -->
-                <div class="space-y-4">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Desglose por Semanas</h3>
-                    
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-300">Semana 1: Enfoque Clásico y Rápido</span>
-                            <span id="week-1-stats-text" class="font-bold text-brand-500">0%</span>
-                        </div>
-                        <div class="w-full h-2 bg-dark-bg rounded-full overflow-hidden">
-                            <div id="week-1-bar" class="h-full bg-brand-500 transition-all duration-500" style="width: 0%"></div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-300">Semana 2: Enfoque Variedad y Sabores</span>
-                            <span id="week-2-stats-text" class="font-bold text-brand-500">0%</span>
-                        </div>
-                        <div class="w-full h-2 bg-dark-bg rounded-full overflow-hidden">
-                            <div id="week-2-bar" class="h-full bg-brand-500 transition-all duration-500" style="width: 0%"></div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-300">Semana 3: Enfoque Práctico y Especias</span>
-                            <span id="week-3-stats-text" class="font-bold text-brand-500">0%</span>
-                        </div>
-                        <div class="w-full h-2 bg-dark-bg rounded-full overflow-hidden">
-                            <div id="week-3-bar" class="h-full bg-brand-500 transition-all duration-500" style="width: 0%"></div>
-                        </div>
+                        <span class="text-xs text-slate-400 font-medium">Nutrición Cumplida</span>
+                        <div id="stat-meals-count" class="text-2xl font-extrabold text-white mt-1">0/45</div>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
     </main>
 
-    <!-- MOBILE BOTTOM NAVIGATION -->
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 px-6 py-2">
+    <!-- MOBILE NAV -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 px-4 py-2">
         <div class="flex items-center justify-around">
             <button id="mobile-nav-daily" class="mobile-nav-item active flex flex-col items-center gap-1 text-brand-500">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 <span class="text-[10px] font-semibold">Diario</span>
             </button>
+            <button id="mobile-nav-ai" class="mobile-nav-item flex flex-col items-center gap-1 text-slate-400">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                <span class="text-[10px] font-semibold">Coaches IA</span>
+            </button>
             <button id="mobile-nav-grocery" class="mobile-nav-item flex flex-col items-center gap-1 text-slate-400">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                 <span class="text-[10px] font-semibold">Compra</span>
             </button>
             <button id="mobile-nav-stats" class="mobile-nav-item flex flex-col items-center gap-1 text-slate-400">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                 <span class="text-[10px] font-semibold">Stats</span>
             </button>
         </div>
     </nav>
 
-    <!-- EXERCISE & MEAL DETAIL MODAL -->
+    <!-- MODAL -->
     <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 border border-white/10 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 border border-white/10 relative shadow-2xl">
             <button id="modal-close" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg bg-white/5">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            
-            <div class="flex items-center gap-3 mb-4">
-                <div id="modal-icon" class="p-2.5 bg-brand-500/10 text-brand-500 rounded-xl">
-                    <!-- Dynamic Icon -->
-                </div>
-                <div>
-                    <span id="modal-category" class="text-xs font-semibold text-brand-500 uppercase tracking-wider">Detalles</span>
-                    <h3 id="modal-title" class="text-lg font-bold text-white">Título de la Tarea</h3>
-                </div>
-            </div>
-
-            <div id="modal-body" class="space-y-4 text-sm text-slate-300">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
-                <button id="modal-action-close" class="px-4 py-2 text-xs font-bold text-black bg-brand-500 hover:bg-brand-600 rounded-xl transition">
-                    Entendido
-                </button>
-            </div>
+            <h3 id="modal-title" class="text-lg font-bold text-white mb-2">Título</h3>
+            <p id="modal-body" class="text-sm text-slate-300 leading-relaxed"></p>
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT -->
     <script>
-        // MASTER DATA STRUCTURE FOR THE 3-WEEK ROTATING PLAN
         const PLAN_DATA = {
             1: {
                 title: "Semana 1: Enfoque Clásico y Rápido",
                 days: {
-                    lunes: {
-                        name: "Lunes",
-                        badge: "Fuerza Torso",
-                        tasks: [
-                            { id: "w1_lun_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "Aporta unos 25g de proteína magra y grasas saludables para activar tu metabolismo." },
-                            { id: "w1_lun_gym", cat: "gym", title: "Entrenamiento Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Enfócate en mantener una técnica limpia. Descanso entre series: 90 segundos." },
-                            { id: "w1_lun_car", cat: "cardio", title: "Cardio Moderado", text: "15 min cinta con inclinación (paso rápido).", detail: "Ajusta la inclinación entre 8% y 12% a una velocidad de 4.5 - 5.5 km/h." },
-                            { id: "w1_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo + 1 vasito de arroz microondas + Brócoli al vapor.", detail: "Comida limpia rica en carbohidratos complejos y micronutrientes antinflamatorios." },
-                            { id: "w1_lun_cen", cat: "cena", title: "Cena", text: "200g Salmón a la plancha + 1 patata mediana al microondas + Ensalada mixta.", detail: "Rico en Omega-3 para favorecer la recuperación muscular nocturna." }
-                        ]
-                    },
-                    martes: {
-                        name: "Martes",
-                        badge: "Fuerza Pierna",
-                        tasks: [
-                            { id: "w1_mar_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego ligero + 40g avena + puñado de nueces + 1 plátano.", detail: "Carga óptima de glucógeno y saciedad prolongada." },
-                            { id: "w1_mar_gym", cat: "gym", title: "Entrenamiento Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones cuádriceps (3x12) ➔ Gemelos (3x15).", detail: "Prioriza el recorrido profundo en prensa y el estiramiento de isquios en peso muerto." },
-                            { id: "w1_mar_abd", cat: "cardio", title: "Núcleo / Abdomen", text: "3 series de plancha frontal al fallo de tiempo.", detail: "Mantén la pelvis retrovertida y el abdomen en máxima tensión." },
-                            { id: "w1_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 150g patata cocida + Judías verdes salteadas.", detail: "Aporte de hierro hemo e hidratos de asimilación progresiva." },
-                            { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas de atún al natural + 100g boniato al microondas + Champiñones laminados.", detail: "Cena ligera de fácil digestión para optimizar el descanso." }
-                        ]
-                    },
-                    miercoles: {
-                        name: "Miércoles",
-                        badge: "Descanso Activo",
-                        tasks: [
-                            { id: "w1_mie_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "Aporte constante de proteína y grasas buenas." },
-                            { id: "w1_mie_mis", cat: "mision", title: "Misión Hoy (Descanso Activo)", text: "Camina 30 minutos al aire libre. Cero gimnasio para recargar la mente.", detail: "Ayuda a reducir el cortisol y promover el flujo sanguíneo de recuperación." },
-                            { id: "w1_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Contramuslo de pavo + 1 vasito de arroz + Ensalada de tomate.", detail: "Proteína magra combinada con hidratación fresca." },
-                            { id: "w1_mie_cen", cat: "cena", title: "Cena", text: "200g Merluza a la plancha + Calabacín y espárragos trigueros.", detail: "Cena ultra-magra rica en potasio y diurética." }
-                        ]
-                    },
-                    jueves: {
-                        name: "Jueves",
-                        badge: "Definición Torso",
-                        tasks: [
-                            { id: "w1_jue_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego ligero + 40g avena + puñado de nueces + 1 plátano.", detail: "Energía sostenida para afrontar la sesión de empuje/tirón." },
-                            { id: "w1_jue_gym", cat: "gym", title: "Entrenamiento Gym: Torso hipertrofia", text: "Press inclinado mancuernas (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones laterales (4x15) ➔ Superserie Bíceps/Tríceps (3x12).", detail: "Controla la fase excéntrica (bajada de 2-3 segundos)." },
-                            { id: "w1_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min de bicicleta estática (ritmo alegre).", detail: "Mantén una cadencia superior a 80 RPM." },
-                            { id: "w1_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo + 150g patata cocida + Brócoli al vapor.", detail: "Nutrición clásica culturista de alta eficiencia." },
-                            { id: "w1_jue_cen", cat: "cena", title: "Cena", text: "200g Emperador/Pez espada + 100g boniato al microondas + Ensalada.", detail: "Pescado azul denso en nutrientes para la reconstrucción nocturna." }
-                        ]
-                    },
-                    viernes: {
-                        name: "Viernes",
-                        badge: "Resistencia Pierna",
-                        tasks: [
-                            { id: "w1_vie_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "Preparación nutricional para el esfuerzo del viernes." },
-                            { id: "w1_vie_gym", cat: "gym", title: "Entrenamiento Gym: Pierna volumen", text: "Zancadas con mancuernas (3x12 pasos) ➔ Curl isquios acostado (4x12) ➔ Prensa peso moderado (3x15).", detail: "Mantén la estabilidad del core en las zancadas." },
-                            { id: "w1_vie_hii", cat: "cardio", title: "Cardio HIIT Elíptica", text: "10 min elíptica (2 min calentamiento res 4-5, intervalos 30 seg a tope / 30 seg lento, 1 min enfriamiento).", detail: "Exige al máximo tus pulso en los intervalos de 30 segundos." },
-                            { id: "w1_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 1 vasito de arroz + Judías verdes.", detail: "Restauración muscular tras el entrenamiento de alta intensidad." },
-                            { id: "w1_vie_cen", cat: "cena", title: "Cena", text: "2 latas de atún al natural + 1 patata al microondas + Salteado de verduras variadas.", detail: "Cena rápida para cerrar la semana laboral con éxito." }
-                        ]
-                    },
-                    sabado: {
-                        name: "Sábado",
-                        badge: "Mantenimiento Activo",
-                        tasks: [
-                            { id: "w1_sab_act", cat: "mision", title: "Movimiento Diario", text: "Mínimo 8.000 pasos al aire libre o actividad recreativa.", detail: "Camina, pasea o realiza actividades que no generen fatiga excesiva." },
-                            { id: "w1_sab_nut", cat: "almuerzo", title: "Prioridad Nutricional", text: "Prioriza platos limpios con proteína de calidad y vegetales.", detail: "Mantén la norma del plato limpio aunque estés fuera de casa." }
-                        ]
-                    },
-                    domingo: {
-                        name: "Domingo",
-                        badge: "Batch Cooking Anti-Abandono",
-                        tasks: [
-                            { id: "w1_dom_bat", cat: "mision", title: "Misión Clave (40 min)", text: "Cocina los carbohidratos de la semana entrante (cocer patatas, vasitos de arroz, boniato) y organiza carnes.", detail: "Si está listo en la nevera, el margen de fallo durante la semana se reduce a cero." }
-                        ]
-                    }
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
+                        { id: "w1_lun_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "Aporta 25g de proteína magra y grasas saludables." },
+                        { id: "w1_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Descanso entre series: 90 segundos." },
+                        { id: "w1_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta con inclinación (paso rápido).", detail: "Inclinación 8-10% a 5 km/h." },
+                        { id: "w1_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo + 1 vasito de arroz + Brócoli.", detail: "Carbohidratos limpios y proteína pura." },
+                        { id: "w1_lun_cen", cat: "cena", title: "Cena", text: "200g Salmón a la plancha + 1 patata mediana + Ensalada mixta.", detail: "Omega-3 para recuperación nocturna." }
+                    ]},
+                    martes: { name: "Martes", badge: "Fuerza Pierna", tasks: [
+                        { id: "w1_mar_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego ligero + 40g avena + nueces + 1 plátano.", detail: "Energía saciante de liberación sostenida." },
+                        { id: "w1_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones cuádriceps (3x12) ➔ Gemelos (3x15).", detail: "Enfócate en la técnica del peso muerto rumano." },
+                        { id: "w1_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series de plancha frontal al fallo.", detail: "Retroversión pélvica activa." },
+                        { id: "w1_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 150g patata cocida + Judías verdes.", detail: "Hierro magro e hidratos de lenta absorción." },
+                        { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas atún + 100g boniato microondas + Champiñones.", detail: "Fácil digestión nocturna." }
+                    ]},
+                    miercoles: { name: "Miércoles", badge: "Descanso Activo", tasks: [
+                        { id: "w1_mie_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada integral con aguacate.", detail: "Nutrición estable." },
+                        { id: "w1_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Cero gimnasio.", detail: "Recuperación del sistema nervioso." },
+                        { id: "w1_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Contramuslo de pavo + 1 vasito arroz + Ensalada tomate.", detail: "Proteína limpia." },
+                        { id: "w1_mie_cen", cat: "cena", title: "Cena", text: "200g Merluza a la plancha + Calabacín y espárragos.", detail: "Cena diurética y ligera." }
+                    ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w1_jue_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego + 40g avena + nueces + plátano.", detail: "Recarga de glucógeno." },
+                        { id: "w1_jue_gym", cat: "gym", title: "Gym: Torso Hipertrofia", text: "Press inclinado mancuernas (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones laterales (4x15) ➔ Superserie Biceps/Triceps (3x12).", detail: "Controla la bajada." },
+                        { id: "w1_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Cadencia > 80 RPM." },
+                        { id: "w1_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo + 150g patata cocida + Brócoli.", detail: "Proteína magra." },
+                        { id: "w1_jue_cen", cat: "cena", title: "Cena", text: "200g Emperador + 100g boniato + Ensalada.", detail: "Recuperación nocturna." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Resistencia Pierna", tasks: [
+                        { id: "w1_vie_des", cat: "desayuno", title: "Desayuno", text: "Tortilla (3 huevos) + 1 tostada con aguacate.", detail: "Proteína pre-entreno." },
+                        { id: "w1_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas con mancuernas (3x12 pasos) ➔ Curl isquios acostado (4x12) ➔ Prensa moderada (3x15).", detail: "Resistencia muscular." },
+                        { id: "w1_vie_hii", cat: "cardio", title: "Cardio HIIT", text: "10 min elíptica (30s a tope / 30s lento).", detail: "Intervalos de máxima intensidad." },
+                        { id: "w1_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera magra + 1 vasito arroz + Judías verdes.", detail: "Proteína de calidad." },
+                        { id: "w1_vie_cen", cat: "cena", title: "Cena", text: "2 latas atún + 1 patata al microondas + Verduras.", detail: "Digestión rápida." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w1_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos diarios.", detail: "Paseo ligero." },
+                        { id: "w1_sab_nut", cat: "almuerzo", title: "Nutrición", text: "Prioriza platos limpios con proteína.", detail: "Proteína en cada comida." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Batch Cooking", tasks: [
+                        { id: "w1_dom_bat", cat: "mision", title: "Batch Cooking (40 min)", text: "Cocer patatas, arroz y dejar carnes listas.", detail: "Prep clave anti-abandono." }
+                    ]}
                 }
             },
             2: {
                 title: "Semana 2: Enfoque Variedad y Sabores",
                 days: {
-                    lunes: {
-                        name: "Lunes",
-                        badge: "Fuerza Torso",
-                        tasks: [
-                            { id: "w2_lun_des", cat: "desayuno", title: "Desayuno: Sabores de Italia", text: "3 huevos revueltos con tomates cherry y albahaca + 1 tostada integral.", detail: "Aromático, antioxidante y saciante." },
-                            { id: "w2_lun_gym", cat: "gym", title: "Entrenamiento Gym: Torso Fuerza", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Aumenta ligeramente la carga respecto a la semana pasada si es posible." },
-                            { id: "w2_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta con inclinación (paso rápido).", detail: "Mantén un paso firme sin agarrarte a los agarres laterales." },
-                            { id: "w2_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras de pollo salteadas con pimientos rojos/verdes y cebolla + 1 vasito de arroz integral.", detail: "Plato rico en vitamina C y fibra integral." },
-                            { id: "w2_lun_cen", cat: "cena", title: "Cena", text: "200g Atún fresco a la plancha o emperador + 150g puré de patata casero (sin mantequilla) + Espárragos.", detail: "Proteína de alto valor biológico con carbohidratos de fácil digestión." }
-                        ]
-                    },
-                    martes: {
-                        name: "Martes",
-                        badge: "Fuerza Pierna",
-                        tasks: [
-                            { id: "w2_mar_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + 40g copos de maíz sin azúcar + 15g almendras + 1 taza de fresas.", detail: "Frescura, crujiente y excelente perfil proteico." },
-                            { id: "w2_mar_gym", cat: "gym", title: "Entrenamiento Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones cuádriceps (3x12) ➔ Gemelos (3x15).", detail: "Siente el trabajo directo en los grupos musculares objetivo." },
-                            { id: "w2_mar_abd", cat: "cardio", title: "Abdomen Iso", text: "3 series de plancha frontal al fallo de tiempo.", detail: "Respira de forma fluida sin perder la contracción abdominal." },
-                            { id: "w2_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Hamburguesa de ternera magra (sin pan) + 150g de calabaza asada + Ensalada de canónigos.", detail: "Sabor gourmet saludable, bajo en calorías densas." },
-                            { id: "w2_mar_cen", cat: "cena", title: "Cena", text: "Tortilla de 2 huevos con 1 lata de berberechos o atún + Crema de verduras casera.", detail: "Cena reconstituyente y ligera." }
-                        ]
-                    },
-                    miercoles: {
-                        name: "Miércoles",
-                        badge: "Descanso Activo",
-                        tasks: [
-                            { id: "w2_mie_des", cat: "desayuno", title: "Desayuno: Sabores de Italia", text: "3 huevos revueltos con tomates cherry y albahaca + 1 tostada integral.", detail: "Energía equilibrada para arrancar el día de descanso activo." },
-                            { id: "w2_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Escucha tu música o podcast favorito.", detail: "Desconexión mental activa." },
-                            { id: "w2_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Lomo de cerdo ibérico a la plancha + 1 vasito de arroz integral + Champiñones al ajillo.", detail: "Fuente de tiamina y minerales esenciales." },
-                            { id: "w2_mie_cen", cat: "cena", title: "Cena", text: "200g Bacalao al horno o al vapor + 100g de patata asada + Ensalada verde.", detail: "Pescado blanco sabroso y magro." }
-                        ]
-                    },
-                    jueves: {
-                        name: "Jueves",
-                        badge: "Definición Torso",
-                        tasks: [
-                            { id: "w2_jue_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + 40g copos de maíz sin azúcar + 15g almendras + 1 taza de fresas.", detail: "Nutrición equilibrada antes de la sesión de gym." },
-                            { id: "w2_jue_gym", cat: "gym", title: "Entrenamiento Gym: Torso Tono", text: "Press inclinado mancuernas (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones laterales (4x15) ➔ Superserie Bíceps/Tríceps (3x12).", detail: "Mantén una pausa de 1 segundo en la máxima contracción." },
-                            { id: "w2_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min de bicicleta estática (ritmo alegre).", detail: "Activa la quema de calorías post-entrenamiento." },
-                            { id: "w2_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras de pollo salteadas con pimientos y cebolla + 150g puré de patata.", detail: "Combinación práctica y llena de sabor." },
-                            { id: "w2_jue_cen", cat: "cena", title: "Cena", text: "200g Sepia o calamar a la plancha con ajo y perejil + 100g calabaza asada + Ensalada mixta.", detail: "Proteína marina baja en grasas con alto poder saciante." }
-                        ]
-                    },
-                    viernes: {
-                        name: "Viernes",
-                        badge: "Resistencia Pierna",
-                        tasks: [
-                            { id: "w2_vie_des", cat: "desayuno", title: "Desayuno: Sabores de Italia", text: "3 huevos revueltos con tomates cherry y albahaca + 1 tostada integral.", detail: "Nutrición sólida para culminar la semana de entrenos." },
-                            { id: "w2_vie_gym", cat: "gym", title: "Entrenamiento Gym: Pierna", text: "Zancadas con mancuernas (3x12 pasos) ➔ Curl isquios acostado (4x12) ➔ Prensa peso moderado (3x15).", detail: "Foco en la resistencia metabólica de piernas." },
-                            { id: "w2_vie_hii", cat: "cardio", title: "Cardio HIIT Elíptica", text: "10 min elíptica (30 seg a tope / 30 seg lento).", detail: "Intervalos intensos para potenciar el consumo de oxígeno." },
-                            { id: "w2_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Hamburguesa de ternera magra + 1 vasito de arroz integral + Crema de verduras.", detail: "Proteína de ternera de calidad e hidratos complejos." },
-                            { id: "w2_vie_cen", cat: "cena", title: "Cena", text: "200g Trucha o lubina a la espalda + 1 patata al microondas + Judías verdes salteadas.", detail: "Pescado suave para cerrar el ciclo laboral con digestión ligera." }
-                        ]
-                    },
-                    sabado: {
-                        name: "Sábado",
-                        badge: "Mantenimiento Activo",
-                        tasks: [
-                            { id: "w2_sab_act", cat: "mision", title: "Pasos Activos", text: "Acumula mínimo 8.000 pasos en el transcurso del día.", detail: "Camina mientras realizas tus gestiones de fin de semana." },
-                            { id: "w2_sab_nut", cat: "almuerzo", title: "Proteína Limpia", text: "Asegura la ración proteica en comida y cena.", detail: "Elige opciones a la plancha o al horno si comes fuera." }
-                        ]
-                    },
-                    domingo: {
-                        name: "Domingo",
-                        badge: "Batch Cooking Anti-Abandono",
-                        tasks: [
-                            { id: "w2_dom_bat", cat: "mision", title: "Prep Semanal (40 min)", text: "Deja cocidas patatas, calabaza asada y envases de pollo/pavo listos.", detail: "Tu futuro yo te lo agradecerá durante la semana." }
-                        ]
-                    }
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
+                        { id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con tomates cherry y albahaca + 1 tostada integral.", detail: "Aromático y antioxidante." },
+                        { id: "w2_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Aumenta la carga si puedes." },
+                        { id: "w2_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta paso rápido.", detail: "Ritmo continuo." },
+                        { id: "w2_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras de pollo salteadas con pimientos y cebolla + 1 vasito arroz integral.", detail: "Vitamina C e hidratos." },
+                        { id: "w2_lun_cen", cat: "cena", title: "Cena", text: "200g Atún fresco a la plancha + 150g puré de patata casero + Espárragos.", detail: "Fácil digestión." }
+                    ]},
+                    martes: { name: "Martes", badge: "Fuerza Pierna", tasks: [
+                        { id: "w2_mar_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + 40g copos maíz + 15g almendras + fresas.", detail: "Crujiente y proteico." },
+                        { id: "w2_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones (3x12) ➔ Gemelos (3x15).", detail: "Foco en isquios." },
+                        { id: "w2_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series de plancha frontal.", detail: "Contracción máxima." },
+                        { id: "w2_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Hamburguesa de ternera magra + 150g calabaza asada + Canónigos.", detail: "Sabor gourmet limpio." },
+                        { id: "w2_mar_cen", cat: "cena", title: "Cena", text: "Tortilla 2 huevos con berberechos + Crema de verduras casera.", detail: "Cena ligera." }
+                    ]},
+                    miercoles: { name: "Miércoles", badge: "Descanso Activo", tasks: [
+                        { id: "w2_mie_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys + 1 tostada integral.", detail: "Energía equilibrada." },
+                        { id: "w2_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre escuchando un podcast.", detail: "Desconexión mental." },
+                        { id: "w2_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Lomo de cerdo ibérico + 1 vasito arroz integral + Champiñones.", detail: "Proteína sabrosa." },
+                        { id: "w2_mie_cen", cat: "cena", title: "Cena", text: "200g Bacalao al horno + 100g patata asada + Ensalada verde.", detail: "Pescado blanco magro." }
+                    ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w2_jue_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + 40g copos maíz + almendras + fresas.", detail: "Proteína fresca." },
+                        { id: "w2_jue_gym", cat: "gym", title: "Gym: Torso", text: "Press inclinado (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones (4x15) ➔ Superserie Arms (3x12).", detail: "Congestión." },
+                        { id: "w2_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Ritmo vivo." },
+                        { id: "w2_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras pollo salteadas + 150g puré de patata.", detail: "Proteína y carbohidrato." },
+                        { id: "w2_jue_cen", cat: "cena", title: "Cena", text: "200g Sepia a la plancha con ajo y perejil + 100g calabaza asada.", detail: "Muy bajo en grasa." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Resistencia Pierna", tasks: [
+                        { id: "w2_vie_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys + tostada.", detail: "Proteína pura." },
+                        { id: "w2_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12) ➔ Curl isquios (4x12) ➔ Prensa (3x15).", detail: "Volumen final." },
+                        { id: "w2_vie_hii", cat: "cardio", title: "Cardio HIIT", text: "10 min elíptica (30s a tope / 30s lento).", detail: "Intensidad alta." },
+                        { id: "w2_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Hamburguesa ternera + arroz integral + crema verduras.", detail: "Recuperación." },
+                        { id: "w2_vie_cen", cat: "cena", title: "Cena", text: "200g Trucha a la espalda + 1 patata al microondas + Judías.", detail: "Cena suave." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w2_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos.", detail: "Mantén el movimiento." },
+                        { id: "w2_sab_nut", cat: "almuerzo", title: "Proteína", text: "Prioriza carne o pescado a la plancha.", detail: "Cuidado con salsas." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Batch Cooking", tasks: [
+                        { id: "w2_dom_bat", cat: "mision", title: "Batch Cooking", text: "Dejar patatas, calabaza y carnes troceadas.", detail: "40 minutos de prep." }
+                    ]}
                 }
             },
             3: {
                 title: "Semana 3: Enfoque Práctico y Especias",
                 days: {
-                    lunes: {
-                        name: "Lunes",
-                        badge: "Fuerza Torso",
-                        tasks: [
-                            { id: "w3_lun_des", cat: "desayuno", title: "Desayuno: Toque Dulce", text: "3 huevos en tortilla con canela + 1 tostada integral con 1 cucharada crema cacahuete + 1 manzana.", detail: "Energía concentrada, perfil lipídico óptimo y manzana rica en pectina." },
-                            { id: "w3_lun_gym", cat: "gym", title: "Entrenamiento Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón pecho (3x10).", detail: "Cierra la rotación buscando récords personales de repeticiones." },
-                            { id: "w3_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta con inclinación (paso rápido).", detail: "Paso constante sin pausar." },
-                            { id: "w3_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo al curry + 1 vasito de arroz basmati + Salteado de zanahoria y calabacín.", detail: "Propiedades antiinflamatorias gracias a la cúrcuma del curry." },
-                            { id: "w3_lun_cen", cat: "cena", title: "Cena", text: "200g Dorada al horno + 150g patata panadera (microondas/horno con poco aceite) + Ensalada.", detail: "Proteínas blancas súper digestivas." }
-                        ]
-                    },
-                    martes: {
-                        name: "Martes",
-                        badge: "Fuerza Pierna",
-                        tasks: [
-                            { id: "w3_mar_des", cat: "desayuno", title: "Desayuno: Batido Saciante", text: "Batir 250g yogur griego + 40g avena molida + 1 cucharada cacao puro + 1 plátano + agua/hielo.", detail: "Batido rico en flavonoides y potasio, listo en 2 minutos." },
-                            { id: "w3_mar_gym", cat: "gym", title: "Entrenamiento Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones cuádriceps (3x12) ➔ Gemelos (3x15).", detail: "Máximo enfoque en la conexión mente-músculo." },
-                            { id: "w3_mar_abd", cat: "cardio", title: "Núcleo", text: "3 series de plancha frontal al fallo de tiempo.", detail: "Resistencia isométrica pura." },
-                            { id: "w3_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Carne picada de ternera (95% magra) con especias mexicanas + 100g maíz dulce + Ensalada picada.", detail: "Sabor especiado estimulante y proteico." },
-                            { id: "w3_mar_cen", cat: "cena", title: "Cena", text: "200g Langostinos cocidos o a la plancha + Crema de calabaza casera + 100g boniato.", detail: "Cena gourmet baja en grasa con alta saciedad." }
-                        ]
-                    },
-                    miercoles: {
-                        name: "Miércoles",
-                        badge: "Descanso Activo",
-                        tasks: [
-                            { id: "w3_mie_des", cat: "desayuno", title: "Desayuno: Toque Dulce", text: "3 huevos en tortilla con canela + 1 tostada integral con crema cacahuete + 1 manzana.", detail: "Energía placentera para comenzar el descanso." },
-                            { id: "w3_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Desconecta del trabajo y el estrés.", detail: "Prioriza tu salud mental y recuperación nerviosa." },
-                            { id: "w3_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Solomillo de pavo al pimentón + 1 vasito arroz basmati + Brócoli salteado.", detail: "Proteína ultrapura de pavo con pimentón antioxidante." },
-                            { id: "w3_mie_cen", cat: "cena", title: "Cena", text: "2 latas de salmón en conserva o 200g pulpo a la gallega + 100g patata cocida + Pimentón y aove.", detail: "Sabor mediterráneo tradicional súper saludable." }
-                        ]
-                    },
-                    jueves: {
-                        name: "Jueves",
-                        badge: "Definición Torso",
-                        tasks: [
-                            { id: "w3_jue_des", cat: "desayuno", title: "Desayuno: Batido Saciante", text: "Batir 250g yogur griego + 40g avena molida + 1 cucharada cacao puro + 1 plátano.", detail: "Nutrición ágil para mañanas con prisa." },
-                            { id: "w3_jue_gym", cat: "gym", title: "Entrenamiento Gym: Torso", text: "Press inclinado mancuernas (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones laterales (4x15) ➔ Superserie Bíceps/Tríceps (3x12).", detail: "Consigue la máxima congestión muscular." },
-                            { id: "w3_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min de bicicleta estática (ritmo alegre).", detail: "Mantén el ritmo cardíaco activo." },
-                            { id: "w3_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga de pollo al curry + 150g patata panadera + Salteado de verduras.", detail: "Recomposición corporal efectiva." },
-                            { id: "w3_jue_cen", cat: "cena", title: "Cena", text: "200g Bacalao desalado con pisto de verduras (tomate, pimiento, cebolla, calabacín).", detail: "Guiso magro rico en licopeno y fibra." }
-                        ]
-                    },
-                    viernes: {
-                        name: "Viernes",
-                        badge: "Resistencia Pierna",
-                        tasks: [
-                            { id: "w3_vie_des", cat: "desayuno", title: "Desayuno: Toque Dulce", text: "3 huevos en tortilla con canela + 1 tostada con crema cacahuete + 1 manzana.", detail: "Carga final de la semana de rutina." },
-                            { id: "w3_vie_gym", cat: "gym", title: "Entrenamiento Gym: Pierna", text: "Zancadas con mancuernas (3x12 pasos) ➔ Curl isquios acostado (4x12) ➔ Prensa peso moderado (3x15).", detail: "Último esfuerzo semanal en gimnasio." },
-                            { id: "w3_vie_hii", cat: "cardio", title: "Cardio HIIT", text: "10 min elíptica (30 seg a tope / 30 seg lento).", detail: "Remate metabólico para cerrar el bloque de 3 semanas." },
-                            { id: "w3_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Carne picada de ternera mexicana + 1 vasito arroz basmati + Ensalada.", detail: "Sabor recargador y lleno de proteína." },
-                            { id: "w3_vie_cen", cat: "cena", title: "Cena", text: "200g Calamares a la plancha + Crema de calabaza + 1 patata al microondas.", detail: "Cena ligera de celebración por completar la rotación." }
-                        ]
-                    },
-                    sabado: {
-                        name: "Sábado",
-                        badge: "Mantenimiento Activo",
-                        tasks: [
-                            { id: "w3_sab_act", cat: "mision", title: "Pasos", text: "Mantén el movimiento (mínimo 8.000 pasos).", detail: "Disfruta del fin de semana sin sedentarismo." },
-                            { id: "w3_sab_nut", cat: "almuerzo", title: "Equilibrio", text: "Platos limpios con proteína de calidad.", detail: "Mantén el hábito construido." }
-                        ]
-                    },
-                    domingo: {
-                        name: "Domingo",
-                        badge: "Reset & Evaluación",
-                        tasks: [
-                            { id: "w3_dom_bat", cat: "mision", title: "Reset de 3 Semanas", text: "Prepara la rotación para volver a la Semana 1 con más fuerza.", detail: "Evalúa tus sensaciones y mejoras de fuerza." }
-                        ]
-                    }
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
+                        { id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + 1 tostada con crema cacahuete + 1 manzana.", detail: "Energía concentrada." },
+                        { id: "w3_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón (3x10).", detail: "Fuerza máxima." },
+                        { id: "w3_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta paso rápido.", detail: "Inclinación continua." },
+                        { id: "w3_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo al curry + 1 vasito arroz basmati + Salteado verduras.", detail: "Curry antiinflamatorio." },
+                        { id: "w3_lun_cen", cat: "cena", title: "Cena", text: "200g Dorada al horno + 150g patata panadera + Ensalada.", detail: "Proteína magra." }
+                    ]},
+                    martes: { name: "Martes", badge: "Fuerza Pierna", tasks: [
+                        { id: "w3_mar_des", cat: "desayuno", title: "Batido Saciante", text: "250g yogur griego + 40g avena molida + cacao puro + 1 plátano + agua.", detail: "Listo en 2 minutos." },
+                        { id: "w3_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones (3x12) ➔ Gemelos (3x15).", detail: "Técnica estricta." },
+                        { id: "w3_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series plancha frontal al fallo.", detail: "Núcleo firme." },
+                        { id: "w3_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera picada mexicana + 100g maíz dulce + Ensalada picada.", detail: "Proteína especiada." },
+                        { id: "w3_mar_cen", cat: "cena", title: "Cena", text: "200g Langostinos + Crema de calabaza + 100g boniato.", detail: "Bajo en grasa." }
+                    ]},
+                    miercoles: { name: "Miércoles", badge: "Descanso Activo", tasks: [
+                        { id: "w3_mie_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla canela + tostada crema cacahuete + manzana.", detail: "Energía equilibrada." },
+                        { id: "w3_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Desconecta del estrés.", detail: "Salud mental." },
+                        { id: "w3_mie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Solomillo pavo al pimentón + arroz basmati + Brócoli.", detail: "Proteína de pavo." },
+                        { id: "w3_mie_cen", cat: "cena", title: "Cena", text: "2 latas salmón o 200g pulpo a la gallega + 100g patata cocida + pimentón.", detail: "Sabor mediterráneo." }
+                    ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w3_jue_des", cat: "desayuno", title: "Batido Saciante", text: "250g yogur griego + 40g avena + cacao + plátano.", detail: "Batido fluido." },
+                        { id: "w3_jue_gym", cat: "gym", title: "Gym: Torso", text: "Press inclinado (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones (4x15) ➔ Superserie Arms (3x12).", detail: "Hipertrofia." },
+                        { id: "w3_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Ritmo constante." },
+                        { id: "w3_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo al curry + 150g patata panadera + Verduras.", detail: "Comida completa." },
+                        { id: "w3_jue_cen", cat: "cena", title: "Cena", text: "200g Bacalao desalado con pisto de verduras casero.", detail: "Rico en licopeno." }
+                    ]},
+                    viernes: { name: "Viernes", badge: "Resistencia Pierna", tasks: [
+                        { id: "w3_vie_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla canela + tostada crema cacahuete + manzana.", detail: "Último empujón." },
+                        { id: "w3_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12) ➔ Curl isquios (4x12) ➔ Prensa moderada (3x15).", detail: "Resistencia." },
+                        { id: "w3_vie_hii", cat: "cardio", title: "Cardio HIIT", text: "10 min elíptica (30s a tope / 30s lento).", detail: "Remate metabólico." },
+                        { id: "w3_vie_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera picada mexicana + arroz basmati + Ensalada.", detail: "Proteína pura." },
+                        { id: "w3_vie_cen", cat: "cena", title: "Cena", text: "200g Calamares a la plancha + Crema calabaza + 1 patata.", detail: "Cierre de rotación." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w3_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos.", detail: "Movimiento activo." },
+                        { id: "w3_sab_nut", cat: "almuerzo", title: "Equilibrio", text: "Platos limpios con buena proteína.", detail: "Consistencia." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Reset & Evaluación", tasks: [
+                        { id: "w3_dom_bat", cat: "mision", title: "Reset de 3 Semanas", text: "Prepara la vuelta a la Semana 1 con más fuerza.", detail: "Evalúa tus progresos." }
+                    ]}
                 }
             }
         };
 
-        // GROCERY LIST DATA
         const GROCERY_DATA = {
             1: [
-                { category: "Proteínas Magras", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Contramuslo de pavo", "1 Ternera magra filetes", "400g Salmón fresco", "200g Merluza a la plancha", "200g Emperador / Pez espada", "4 Latas de atún al natural"] },
-                { category: "Huevos y Lácteos", items: ["2-3 Docenas de huevos frescos", "1 kg Yogur griego ligero 0%", "Nueces / Frutos secos"] },
-                { category: "Carbohidratos & Despensa", items: ["Vasitos de arroz para microondas", "Patatas medianas", "Boniatos", "Avena en copos", "Pan integral 100%"] },
-                { category: "Verduras y Frutas", items: ["Brócoli fresco", "Judías verdes", "Calabacín y espárragos trigueros", "Champiñones laminados", "Ensaladas variadas", "Aguacates", "Plátanos"] }
+                { category: "Proteínas", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Pavo", "400g Salmón", "4 Latas de atún"] },
+                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Nueces / Frutos secos"] },
+                { category: "Carbohidratos & Verduras", items: ["Vasitos de arroz", "Patatas & Boniatos", "Brócoli & Judías verdes", "Aguacates & Plátanos"] }
             ],
             2: [
-                { category: "Proteínas Magras", items: ["800g Pollo en tiras", "400g Hamburguesas de ternera magra", "400g Lomo de cerdo ibérico", "200g Atún fresco o emperador", "200g Bacalao al horno", "200g Sepia / Calamar", "200g Trucha o lubina", "1 Lata berberechos"] },
-                { category: "Huevos y Lácteos", items: ["2-3 Docenas de huevos frescos", "1 kg Queso batido 0%", "Almendras al natural"] },
-                { category: "Carbohidratos & Despensa", items: ["Arroz integral en vasitos", "Copos de maíz sin azúcar", "Patatas para puré / asar", "Calabaza asada"] },
-                { category: "Verduras y Frutas", items: ["Pimientos rojos, verdes y cebolla", "Fresas o frutos rojos", "Tomates cherry y albahaca fresca", "Puerro y calabacín (para cremas)", "Canónigos y ensalada verde"] }
+                { category: "Proteínas", items: ["800g Pollo en tiras", "400g Hamburguesas ternera magra", "400g Lomo ibérico", "200g Atún fresco", "200g Sepia / Calamar"] },
+                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "Almendras"] },
+                { category: "Carbohidratos & Verduras", items: ["Arroz integral en vasitos", "Copos de maíz sin azúcar", "Pimientos y cebolla", "Fresas / Frutos rojos"] }
             ],
             3: [
-                { category: "Proteínas Magras", items: ["800g Pechuga de pollo", "600g Carne picada ternera 95% magra", "400g Solomillo de pavo", "200g Langostinos", "200g Dorada", "200g Bacalao desalado", "200g Calamares", "2 Latas salmón o 200g pulpo"] },
-                { category: "Huevos y Lácteos", items: ["2-3 Docenas de huevos frescos", "1 kg Yogur griego ligero", "Crema de cacahuete 100% pura"] },
-                { category: "Carbohidratos & Despensa", items: ["Arroz basmati", "Avena molida", "Cacao puro en polvo", "Maíz dulce", "Canela en polvo & curry", "Pimentón dulce"] },
-                { category: "Verduras y Frutas", items: ["Calabaza (para cremas)", "Zanahorias y calabacín", "Brócoli", "Pisto (tomate, pimiento, cebolla)", "Manzanas", "Plátanos"] }
+                { category: "Proteínas", items: ["800g Pechuga pollo", "600g Ternera picada 95% magra", "400g Solomillo pavo", "200g Langostinos", "200g Bacalao"] },
+                { category: "Lácteos & Huevos", items: ["2 Docenas de huevos", "1 kg Yogur griego", "Crema de cacahuete 100%"] },
+                { category: "Carbohidratos & Verduras", items: ["Arroz basmati", "Avena molida", "Cacao puro", "Maíz dulce", "Curry & Pimentón", "Calabaza & Manzanas"] }
             ]
         };
 
-        // APPLICATION STATE MANAGEMENT
+        const AI_COACHES = {
+            nutrition: {
+                name: "Dra. Elena Ruiz",
+                title: "Nutricionista IA",
+                avatar: "E",
+                welcome: "¡Hola! Soy la Dra. Elena Ruiz. Estoy aquí para personalizar tus calorías, adaptar tu menú a tus gustos o alergias y asegurar que progreses sin pasar hambre. ¿En qué te ayudo hoy?"
+            },
+            fitness: {
+                name: "Coach Marcos Vane",
+                title: "Entrenador Personal IA",
+                avatar: "M",
+                welcome: "¡Qué hay! Soy el Coach Marcos Vane. Mi función es adaptar tus series, sugerirte sustitutos si falta material en tu gimnasio y evitar lesiones. ¿Cómo van tus entrenos?"
+            }
+        };
+
         let currentState = {
             week: 1,
             day: 'lunes',
             view: 'daily',
-            completedTasks: {} // Format: { "taskId": true/false }
+            activeAgent: 'nutrition',
+            completedTasks: {},
+            chatHistory: {
+                nutrition: [],
+                fitness: []
+            }
         };
 
-        // INITIALIZE APP ON DOM LOAD
         document.addEventListener('DOMContentLoaded', () => {
             loadFromLocalStorage();
-            initInitialCheckedItems();
             renderDaySelector();
             renderCurrentDayTasks();
             renderGroceryList();
             updateProgressStats();
+            initChatSystem();
             setupEventListeners();
         });
 
-        // LOAD SAVED PROGRESS FROM STORAGE
         function loadFromLocalStorage() {
-            const saved = localStorage.getItem('vita_pro_progress');
+            const saved = localStorage.getItem('vita_pro_v2_progress');
             if (saved) {
-                try {
-                    currentState.completedTasks = JSON.parse(saved);
-                } catch(e) {
-                    console.error("Error loading localStorage", e);
-                }
+                try { currentState.completedTasks = JSON.parse(saved); } catch(e){}
             }
         }
 
-        // PRE-CHECK ITEMS FROM THE PROMPT DATA IF NOT SAVED BEFORE
-        function initInitialCheckedItems() {
-            if (Object.keys(currentState.completedTasks).length === 0) {
-                // Initial defaults matching user prompt checks:
-                const defaultChecked = [
-                    "w1_mar_des", "w1_mar_alm", "w1_mar_cen",
-                    "w1_mie_des", "w1_mie_alm", "w1_mie_cen",
-                    "w1_jue_des", "w1_jue_alm", "w1_jue_cen"
-                ];
-                defaultChecked.forEach(id => {
-                    currentState.completedTasks[id] = true;
-                });
-                saveToLocalStorage();
-            }
-        }
-
-        // SAVE STATE
         function saveToLocalStorage() {
-            localStorage.setItem('vita_pro_progress', JSON.stringify(currentState.completedTasks));
+            localStorage.setItem('vita_pro_v2_progress', JSON.stringify(currentState.completedTasks));
         }
 
-        // RENDER DAY BUTTONS FOR THE SELECTED WEEK
         function renderDaySelector() {
             const container = document.getElementById('days-container');
             container.innerHTML = '';
-
             const daysMap = [
-                { id: 'lunes', label: 'Lun' },
-                { id: 'martes', label: 'Mar' },
-                { id: 'miercoles', label: 'Mié' },
-                { id: 'jueves', label: 'Jue' },
-                { id: 'viernes', label: 'Vie' },
-                { id: 'sabado', label: 'Sáb' },
-                { id: 'domingo', label: 'Dom' }
+                { id: 'lunes', label: 'Lun' }, { id: 'martes', label: 'Mar' },
+                { id: 'miercoles', label: 'Mié' }, { id: 'jueves', label: 'Jue' },
+                { id: 'viernes', label: 'Vie' }, { id: 'sabado', label: 'Sáb' }, { id: 'domingo', label: 'Dom' }
             ];
 
             const weekData = PLAN_DATA[currentState.week].days;
 
             daysMap.forEach(day => {
-                const dayObj = weekData[day.id];
+                const dayObj = weekData[day.id] || { tasks: [] };
                 const isActive = currentState.day === day.id;
-                
-                // Calculate completion status of this day
-                const tasks = dayObj.tasks;
-                const completedCount = tasks.filter(t => currentState.completedTasks[t.id]).length;
-                const isFullyDone = tasks.length > 0 && completedCount === tasks.length;
+                const completedCount = dayObj.tasks.filter(t => currentState.completedTasks[t.id]).length;
 
                 const btn = document.createElement('button');
-                btn.className = `shrink-0 px-4 py-2.5 rounded-xl border transition-all duration-200 flex flex-col items-center min-w-[70px] ${
-                    isActive 
-                    ? 'bg-brand-500/15 border-brand-500 text-white shadow-lg shadow-brand-500/10' 
-                    : 'bg-dark-card border-white/5 text-slate-400 hover:text-white hover:bg-white/5'
+                btn.className = `shrink-0 px-4 py-2.5 rounded-xl border transition-all flex flex-col items-center min-w-[70px] ${
+                    isActive ? 'bg-brand-500/15 border-brand-500 text-white font-bold shadow-md' : 'bg-dark-card border-white/5 text-slate-400 hover:text-white'
                 }`;
-
-                btn.innerHTML = `
-                    <div class="flex items-center gap-1">
-                        <span class="text-xs font-bold uppercase tracking-wider">${day.label}</span>
-                        ${isFullyDone ? `<span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>` : ''}
-                    </div>
-                    <span class="text-[10px] opacity-70 mt-0.5">${completedCount}/${tasks.length}</span>
-                `;
-
+                btn.innerHTML = `<span class="text-xs uppercase">${day.label}</span><span class="text-[10px] opacity-70 mt-0.5">${completedCount}/${dayObj.tasks.length}</span>`;
                 btn.addEventListener('click', () => {
                     currentState.day = day.id;
                     renderDaySelector();
                     renderCurrentDayTasks();
                 });
-
                 container.appendChild(btn);
             });
         }
 
-        // CATEGORY ICONS UTILITY (DELICATE SVG ICONS ONLY)
-        function getCategoryIcon(cat) {
-            switch(cat) {
-                case 'desayuno':
-                    return `<svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>`;
-                case 'gym':
-                    return `<svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`;
-                case 'cardio':
-                    return `<svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`;
-                case 'almuerzo':
-                    return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>`;
-                case 'cena':
-                    return `<svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
-                case 'mision':
-                default:
-                    return `<svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
-            }
-        }
-
-        // RENDER CURRENT DAY TASK CARDS
         function renderCurrentDayTasks() {
             const weekInfo = PLAN_DATA[currentState.week];
-            const dayInfo = weekInfo.days[currentState.day];
+            const dayInfo = weekInfo.days[currentState.day] || { name: currentState.day, badge: "Rutina", tasks: [] };
 
             document.getElementById('current-week-label').innerText = weekInfo.title;
             document.getElementById('day-title').innerText = dayInfo.name;
@@ -825,50 +663,25 @@
             const grid = document.getElementById('tasks-grid');
             grid.innerHTML = '';
 
-            const tasks = dayInfo.tasks;
             let completedCount = 0;
-
-            tasks.forEach(task => {
+            dayInfo.tasks.forEach(task => {
                 const isChecked = !!currentState.completedTasks[task.id];
                 if (isChecked) completedCount++;
 
                 const card = document.createElement('div');
-                card.className = `glass-card rounded-2xl p-5 border transition-all duration-200 relative flex flex-col justify-between ${
-                    isChecked ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/5'
-                }`;
-
+                card.className = `glass-card rounded-2xl p-5 border transition ${isChecked ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/5'}`;
                 card.innerHTML = `
-                    <div>
-                        <div class="flex items-center justify-between gap-3 mb-3">
-                            <div class="flex items-center gap-2.5">
-                                <div class="p-2 bg-dark-bg/80 rounded-xl border border-white/5">
-                                    ${getCategoryIcon(task.cat)}
-                                </div>
-                                <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">${task.title}</span>
-                            </div>
-                            
-                            <!-- Checkbox -->
-                            <input type="checkbox" id="${task.id}" class="checkbox-custom task-checkbox" ${isChecked ? 'checked' : ''}>
-                        </div>
-
-                        <p class="text-sm font-medium ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'} leading-relaxed">
-                            ${task.text}
-                        </p>
+                    <div class="flex items-center justify-between gap-3 mb-2">
+                        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">${task.title}</span>
+                        <input type="checkbox" id="${task.id}" class="checkbox-custom task-checkbox" ${isChecked ? 'checked' : ''}>
                     </div>
-
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-                        <button class="btn-detail text-xs text-brand-500 hover:text-brand-400 font-semibold flex items-center gap-1 transition" data-id="${task.id}">
-                            <span>Ver detalles & tips</span>
-                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </button>
-
-                        <span class="text-[10px] text-slate-500 font-mono">${isChecked ? 'COMPLETADO' : 'PENDIENTE'}</span>
+                    <p class="text-sm ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'}">${task.text}</p>
+                    <div class="mt-3 pt-2 border-t border-white/5 flex justify-between items-center text-xs">
+                        <button class="btn-detail text-brand-500 font-semibold" data-id="${task.id}">Ver detalles & tips</button>
                     </div>
                 `;
 
-                // Add Checkbox event listener
-                const checkbox = card.querySelector('.task-checkbox');
-                checkbox.addEventListener('change', (e) => {
+                card.querySelector('.task-checkbox').addEventListener('change', (e) => {
                     currentState.completedTasks[task.id] = e.target.checked;
                     saveToLocalStorage();
                     renderDaySelector();
@@ -876,148 +689,140 @@
                     updateProgressStats();
                 });
 
-                // Detail modal listener
-                const detailBtn = card.querySelector('.btn-detail');
-                detailBtn.addEventListener('click', () => {
-                    openDetailModal(task);
+                card.querySelector('.btn-detail').addEventListener('click', () => {
+                    document.getElementById('modal-title').innerText = task.title;
+                    document.getElementById('modal-body').innerText = task.detail;
+                    document.getElementById('detail-modal').classList.remove('hidden');
+                    document.getElementById('detail-modal').classList.add('flex');
                 });
 
                 grid.appendChild(card);
             });
 
-            // Update Progress Circle for today
-            const percentage = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 0;
-            const circle = document.getElementById('progress-circle');
-            const circumference = 2 * Math.PI * 20; // r=20 -> ~125.6
-            const offset = circumference - (percentage / 100) * circumference;
-            
-            circle.style.strokeDashoffset = offset;
+            const percentage = dayInfo.tasks.length > 0 ? Math.round((completedCount / dayInfo.tasks.length) * 100) : 0;
+            document.getElementById('progress-circle').style.strokeDashoffset = 125.6 - (percentage / 100) * 125.6;
             document.getElementById('progress-text').innerText = `${percentage}%`;
-            document.getElementById('progress-count').innerText = `${completedCount} de ${tasks.length} tareas`;
+            document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
         }
 
-        // OPEN DETAIL MODAL
-        function openDetailModal(task) {
-            document.getElementById('modal-icon').innerHTML = getCategoryIcon(task.cat);
-            document.getElementById('modal-category').innerText = task.title;
-            document.getElementById('modal-title').innerText = task.text;
-            document.getElementById('modal-body').innerHTML = `
-                <div class="p-3 bg-dark-bg/80 rounded-xl border border-white/5 leading-relaxed">
-                    <p class="text-xs text-slate-400 mb-1 font-semibold uppercase tracking-wider">Instrucciones & Consejos:</p>
-                    <p class="text-sm text-slate-200">${task.detail || "Mantén el enfoque en la calidad de los alimentos y la consistencia."}</p>
+        function initChatSystem() {
+            switchAgent(currentState.activeAgent);
+        }
+
+        function switchAgent(agentKey) {
+            currentState.activeAgent = agentKey;
+            const coach = AI_COACHES[agentKey];
+
+            document.getElementById('active-chat-avatar').innerText = coach.avatar;
+            document.getElementById('active-chat-name').innerText = coach.name;
+            document.getElementById('active-chat-status').innerText = `En línea · ${coach.title}`;
+
+            if (agentKey === 'nutrition') {
+                document.getElementById('agent-card-nutrition').className = "agent-card active glass-card rounded-2xl p-4 border border-brand-500/40 bg-brand-500/10 cursor-pointer transition";
+                document.getElementById('agent-card-fitness').className = "agent-card glass-card rounded-2xl p-4 border border-white/5 hover:border-purple-500/30 cursor-pointer transition";
+            } else {
+                document.getElementById('agent-card-fitness').className = "agent-card active glass-card rounded-2xl p-4 border border-purple-500/40 bg-purple-500/10 cursor-pointer transition";
+                document.getElementById('agent-card-nutrition').className = "agent-card glass-card rounded-2xl p-4 border border-white/5 hover:border-emerald-500/30 cursor-pointer transition";
+            }
+
+            renderChatMessages();
+        }
+
+        function renderChatMessages() {
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = '';
+            const history = currentState.chatHistory[currentState.activeAgent];
+            const coach = AI_COACHES[currentState.activeAgent];
+
+            if (history.length === 0) {
+                appendChatMessage('ai', coach.welcome, false);
+            } else {
+                history.forEach(msg => appendChatMessage(msg.sender, msg.text, false));
+            }
+        }
+
+        function appendChatMessage(sender, text, save = true) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+
+            msgDiv.innerHTML = `
+                <div class="max-w-[85%] rounded-2xl p-3.5 text-xs ${sender === 'user' ? 'chat-bubble-user font-medium' : 'chat-bubble-ai text-slate-200'} shadow-lg">
+                    <p class="leading-relaxed">${text}</p>
                 </div>
             `;
-            const modal = document.getElementById('detail-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+
+            if (save) {
+                currentState.chatHistory[currentState.activeAgent].push({ sender, text });
+            }
         }
 
-        function closeModal() {
-            const modal = document.getElementById('detail-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+        function handleUserSendMessage() {
+            const input = document.getElementById('chat-user-input');
+            const query = input.value.trim();
+            if (!query) return;
+
+            appendChatMessage('user', query);
+            input.value = '';
+
+            setTimeout(() => {
+                let reply = "";
+                const agent = currentState.activeAgent;
+
+                if (agent === 'nutrition') {
+                    if (query.toLowerCase().includes('caloría') || query.toLowerCase().includes('peso') || query.toLowerCase().includes('objetivo')) {
+                        reply = "Excelente consulta. Para ajustar tu meta, mantén 2g de proteína por kg de peso y gradúa los carbohidratos (vasitos de arroz y patatas) según busques déficit (-300 kcal) o volumen limpio (+200 kcal).";
+                    } else if (query.toLowerCase().includes('pescado') || query.toLowerCase().includes('salmón')) {
+                        reply = "Perfecto. Puedes sustituir los 200g de salmón por 200g de pechuga de pavo o 4 claras + 2 huevos enteros. Mantendrás la misma cantidad de proteína magra.";
+                    } else {
+                        reply = "Anotado. Recuerda la regla de oro: si en una comida te saltas el plan, no abandones el día entero. Retoma inmediatamente en la siguiente casilla.";
+                    }
+                } else {
+                    if (query.toLowerCase().includes('prensa') || query.toLowerCase().includes('máquina')) {
+                        reply = "Si tu gimnasio no tiene prensa, sustitúyela por Sentadilla Búlgara con mancuernas (4 series de 10 repeticiones por pierna). Conseguirás un gran trabajo de cuádriceps.";
+                    } else if (query.toLowerCase().includes('tiempo') || query.toLowerCase().includes('prisa')) {
+                        reply = "Si vas justo de tiempo hoy, realiza el entrenamiento en formato Superserie (ej: combina Press Banca con Remo sin descanso). Terminarás en 25 minutos.";
+                    } else {
+                        reply = "Entendido. Enfoca las dos últimas series de cada ejercicio cerca del fallo muscular manteniendo la técnica limpia para maximizar el estímulo.";
+                    }
+                }
+
+                appendChatMessage('ai', reply);
+            }, 600);
         }
 
-        // RENDER GROCERY LIST
         function renderGroceryList() {
-            const selectedWeek = document.getElementById('grocery-week-select').value;
-            const categories = GROCERY_DATA[selectedWeek];
             const container = document.getElementById('grocery-categories');
+            const week = document.getElementById('grocery-week-select').value;
             container.innerHTML = '';
-
-            categories.forEach(cat => {
+            const cats = GROCERY_DATA[week] || GROCERY_DATA[1];
+            cats.forEach(c => {
                 const card = document.createElement('div');
-                card.className = 'glass-card rounded-2xl p-5 border border-white/5';
-                
-                let itemsHTML = cat.items.map(item => `
-                    <li class="flex items-center gap-2.5 text-xs text-slate-300">
-                        <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>${item}</span>
-                    </li>
-                `).join('');
-
-                card.innerHTML = `
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/5 flex items-center justify-between">
-                        <span>${cat.category}</span>
-                        <span class="text-[10px] text-brand-500 font-normal">${cat.items.length} ítems</span>
-                    </h4>
-                    <ul class="space-y-2.5">
-                        ${itemsHTML}
-                    </ul>
-                `;
-
+                card.className = "glass-card rounded-2xl p-5 border border-white/5";
+                card.innerHTML = `<h4 class="text-xs font-bold text-white uppercase mb-3 pb-2 border-b border-white/5">${c.category}</h4><ul class="space-y-2 text-xs text-slate-300">${c.items.map(i => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${i}</li>`).join('')}</ul>`;
                 container.appendChild(card);
             });
         }
 
-        // UPDATE GLOBAL STATS
         function updateProgressStats() {
-            let totalTasks = 0;
-            let completedTotal = 0;
-            let gymCompleted = 0;
-            let gymTotal = 0;
-            let mealsCompleted = 0;
-            let mealsTotal = 0;
-
-            const weekCounts = { 1: { done: 0, total: 0 }, 2: { done: 0, total: 0 }, 3: { done: 0, total: 0 } };
-
-            Object.keys(PLAN_DATA).forEach(weekKey => {
-                const daysObj = PLAN_DATA[weekKey].days;
-                Object.keys(daysObj).forEach(dayKey => {
-                    const tasks = daysObj[dayKey].tasks;
-                    tasks.forEach(t => {
-                        totalTasks++;
-                        weekCounts[weekKey].total++;
-
-                        const isDone = !!currentState.completedTasks[t.id];
-                        if (isDone) {
-                            completedTotal++;
-                            weekCounts[weekKey].done++;
-                        }
-
-                        if (t.cat === 'gym') {
-                            gymTotal++;
-                            if (isDone) gymCompleted++;
-                        }
-                        if (['desayuno', 'almuerzo', 'cena'].includes(t.cat)) {
-                            mealsTotal++;
-                            if (isDone) mealsCompleted++;
-                        }
-                    });
+            let total = 0, done = 0;
+            Object.keys(PLAN_DATA[1].days).forEach(d => {
+                PLAN_DATA[1].days[d].tasks.forEach(t => {
+                    total++;
+                    if (currentState.completedTasks[t.id]) done++;
                 });
             });
-
-            // Set main counter numbers
-            document.getElementById('stat-completed-total').innerText = completedTotal;
-            const globalPct = totalTasks > 0 ? Math.round((completedTotal / totalTasks) * 100) : 0;
-            document.getElementById('stat-global-percentage').innerText = `${globalPct}%`;
-            document.getElementById('stat-gym-count').innerText = `${gymCompleted}/${gymTotal}`;
-            document.getElementById('stat-meals-count').innerText = `${mealsCompleted}/${mealsTotal}`;
-
-            // Weeks bars update
-            [1, 2, 3].forEach(w => {
-                const wDone = weekCounts[w].done;
-                const wTot = weekCounts[w].total;
-                const wPct = wTot > 0 ? Math.round((wDone / wTot) * 100) : 0;
-                document.getElementById(`week-${w}-stats-text`).innerText = `${wPct}% (${wDone}/${wTot})`;
-                document.getElementById(`week-${w}-bar`).style.width = `${wPct}%`;
-            });
+            document.getElementById('stat-completed-total').innerText = done;
+            document.getElementById('stat-global-percentage').innerText = `${Math.round((done/total)*100)}%`;
         }
 
-        // EVENT LISTENERS SETUP
         function setupEventListeners() {
-            
-            // Week tabs listener
             [1, 2, 3].forEach(w => {
                 document.getElementById(`week-tab-${w}`).addEventListener('click', (e) => {
-                    document.querySelectorAll('.week-tab').forEach(btn => {
-                        btn.classList.remove('active', 'bg-brand-500', 'text-black', 'shadow-md');
-                        btn.classList.add('text-slate-400', 'hover:text-white');
-                    });
-                    
-                    e.currentTarget.classList.add('active', 'bg-brand-500', 'text-black', 'shadow-md');
-                    e.currentTarget.classList.remove('text-slate-400');
-                    
+                    document.querySelectorAll('.week-tab').forEach(b => b.classList.remove('active', 'bg-brand-500', 'text-black'));
+                    e.currentTarget.classList.add('active', 'bg-brand-500', 'text-black');
                     currentState.week = w;
                     document.getElementById('grocery-week-select').value = w;
                     renderDaySelector();
@@ -1026,79 +831,52 @@
                 });
             });
 
-            // Navigation tabs switching
-            const navDaily = document.getElementById('nav-btn-daily');
-            const navGrocery = document.getElementById('nav-btn-grocery');
-            const navStats = document.getElementById('nav-btn-stats');
+            document.getElementById('agent-card-nutrition').addEventListener('click', () => switchAgent('nutrition'));
+            document.getElementById('agent-card-fitness').addEventListener('click', () => switchAgent('fitness'));
 
-            const mobileDaily = document.getElementById('mobile-nav-daily');
-            const mobileGrocery = document.getElementById('mobile-nav-grocery');
-            const mobileStats = document.getElementById('mobile-nav-stats');
+            document.getElementById('btn-send-message').addEventListener('click', handleUserSendMessage);
+            document.getElementById('chat-user-input').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') handleUserSendMessage();
+            });
 
-            function switchView(viewName) {
-                currentState.view = viewName;
-                document.getElementById('view-daily').classList.add('hidden');
-                document.getElementById('view-grocery').classList.add('hidden');
-                document.getElementById('view-stats').classList.add('hidden');
-
-                document.getElementById(`view-${viewName}`).classList.remove('hidden');
-
-                // Desktop nav styles
-                [navDaily, navGrocery, navStats].forEach(btn => {
-                    btn.classList.remove('bg-brand-500', 'text-black', 'shadow-md');
-                    btn.classList.add('text-slate-400');
+            document.querySelectorAll('.quick-prompt-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const txt = e.currentTarget.querySelector('span').innerText.replace(/"/g, '');
+                    document.getElementById('chat-user-input').value = txt;
+                    handleUserSendMessage();
                 });
+            });
 
-                // Mobile nav styles
-                [mobileDaily, mobileGrocery, mobileStats].forEach(btn => {
-                    btn.classList.remove('text-brand-500');
-                    btn.classList.add('text-slate-400');
-                });
-
-                if (viewName === 'daily') {
-                    navDaily.classList.add('bg-brand-500', 'text-black', 'shadow-md');
-                    mobileDaily.classList.add('text-brand-500');
-                } else if (viewName === 'grocery') {
-                    navGrocery.classList.add('bg-brand-500', 'text-black', 'shadow-md');
-                    mobileGrocery.classList.add('text-brand-500');
-                } else if (viewName === 'stats') {
-                    navStats.classList.add('bg-brand-500', 'text-black', 'shadow-md');
-                    mobileStats.classList.add('text-brand-500');
-                }
-            }
-
-            navDaily.addEventListener('click', () => switchView('daily'));
-            navGrocery.addEventListener('click', () => switchView('grocery'));
-            navStats.addEventListener('click', () => switchView('stats'));
-
-            mobileDaily.addEventListener('click', () => switchView('daily'));
-            mobileGrocery.addEventListener('click', () => switchView('grocery'));
-            mobileStats.addEventListener('click', () => switchView('stats'));
-
-            // Reset current day
             document.getElementById('btn-reset-day').addEventListener('click', () => {
-                const dayTasks = PLAN_DATA[currentState.week].days[currentState.day].tasks;
-                dayTasks.forEach(t => {
-                    delete currentState.completedTasks[t.id];
-                });
+                const tasks = PLAN_DATA[currentState.week].days[currentState.day].tasks;
+                tasks.forEach(t => delete currentState.completedTasks[t.id]);
                 saveToLocalStorage();
                 renderDaySelector();
                 renderCurrentDayTasks();
                 updateProgressStats();
             });
 
-            // Grocery select listener
-            document.getElementById('grocery-week-select').addEventListener('change', () => {
-                renderGroceryList();
+            document.getElementById('grocery-week-select').addEventListener('change', renderGroceryList);
+            document.getElementById('modal-close').addEventListener('click', () => {
+                document.getElementById('detail-modal').classList.add('hidden');
             });
 
-            // Modal close listeners
-            document.getElementById('modal-close').addEventListener('click', closeModal);
-            document.getElementById('modal-action-close').addEventListener('click', closeModal);
-            document.getElementById('detail-modal').addEventListener('click', (e) => {
-                if (e.target.id === 'detail-modal') closeModal();
+            const views = ['daily', 'ai', 'grocery', 'stats'];
+            views.forEach(v => {
+                const btn = document.getElementById(`nav-btn-${v}`);
+                const mobBtn = document.getElementById(`mobile-nav-${v}`);
+                const handler = () => {
+                    views.forEach(other => {
+                        document.getElementById(`view-${other}`).classList.add('hidden');
+                        document.getElementById(`nav-btn-${other}`)?.classList.remove('bg-brand-500', 'text-black');
+                    });
+                    document.getElementById(`view-${v}`).classList.remove('hidden');
+                    btn?.classList.add('bg-brand-500', 'text-black');
+                };
+                btn?.addEventListener('click', handler);
+                mobBtn?.addEventListener('click', handler);
             });
         }
     </script>
-
-</body></html>
+</body>
+</html>
