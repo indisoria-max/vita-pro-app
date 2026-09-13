@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Plan de Nutrición, Ayuno & Fitness IA</title>
+    <title>VITA PRO - Plan Completo 3 Semanas & Fitness IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -45,7 +45,7 @@
 </head>
 <body class="min-h-screen pb-28 md:pb-12 text-slate-200 antialiased selection:bg-brand-500 selection:text-black">
 
-    <!-- HEADER -->
+    <!-- APP HEADER -->
     <header class="sticky top-0 z-40 glass-panel border-b border-white/10 px-4 lg:px-8 py-3.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -55,9 +55,9 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Ayuno Medjugorje Incluido</span>
+                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">3 Semanas Completas</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Adaptativo con Ayuno Espiritual (Mié y Vie)</p>
+                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Rotativo & Ayuno Espiritual (Mié y Vie)</p>
                 </div>
             </div>
 
@@ -92,15 +92,16 @@
     <!-- MAIN CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 lg:px-8 pt-6">
 
-        <!-- METAS FIJADAS POR LA IA -->
-        <div class="mb-6 glass-panel rounded-2xl p-5 border border-brand-500/30 bg-gradient-to-r from-brand-900/30 via-dark-card to-dark-card">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <!-- GOLDEN RULE -->
+        <div class="mb-6 glass-card rounded-2xl p-4 lg:p-5 border-l-4 border-l-brand-500 relative overflow-hidden">
+            <div class="flex items-start gap-3.5">
+                <div class="p-2.5 bg-brand-500/10 text-brand-500 rounded-xl mt-0.5 shrink-0">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
                 <div>
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-500 bg-brand-500/10 px-2 py-0.5 rounded-full border border-brand-500/20">Objetivos del Ciclo Actual</span>
-                    <h3 class="text-base font-bold text-white mt-1.5">Meta Nutrición, Ayuno Espiritual & Gimnasio</h3>
-                    <p id="ai-active-goals" class="text-xs text-slate-300 mt-1 leading-relaxed">
-                        • <strong>Dra. Elena:</strong> Cumplir el Ayuno Espiritual a base de Pan y Agua los Miércoles y Viernes.<br>
-                        • <strong>Coach Marcos:</strong> Progresar 1-2 repeticiones en Press Banca y controlar la bajada en Peso Muerto.
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-brand-500 mb-1">Regla de Oro Anti-Obstáculos</h2>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Si fallas una comida o un entreno, <strong class="text-white font-semibold">no dejes el día entero</strong>. El plan se retoma con éxito inmediato en la siguiente casilla.
                     </p>
                 </div>
             </div>
@@ -158,8 +159,7 @@
             <div class="glass-panel rounded-2xl p-6 border border-white/10 space-y-6">
                 <div class="border-b border-white/10 pb-4">
                     <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">Evaluación de Ciclo</span>
-                    <h2 class="text-2xl font-bold text-white mt-1">Evaluación de Avance y Rediseño de Plan (Cada 3 Semanas)</h2>
-                    <p class="text-xs text-slate-400 mt-1">Los entrenadores analizarán tu adherencia al plan y ayunos espirituales para ajustar el próximo ciclo.</p>
+                    <h2 class="text-2xl font-bold text-white mt-1">Evaluación de Avance e IA (Cada 3 Semanas)</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -192,7 +192,7 @@
                 </div>
 
                 <button id="btn-run-full-evaluation" class="w-full py-3 bg-brand-500 hover:bg-brand-600 text-black font-bold text-sm rounded-xl transition shadow-lg">
-                    Generar Evaluación IA & Modificar Plan para el Próximo Ciclo
+                    Generar Evaluación IA para el Próximo Ciclo
                 </button>
 
                 <div id="eval-report-container" class="hidden glass-card rounded-2xl p-5 border border-brand-500/30 bg-brand-500/5 space-y-3">
@@ -205,7 +205,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: COACHES IA CHAT EN VIVO -->
+        <!-- SECCIÓN 3: COACHES IA CHAT -->
         <section id="view-coaches" class="space-y-6 hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="space-y-4">
@@ -268,7 +268,6 @@
                     <div>
                         <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
                         <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
-                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes para tu nutrición y el pan de calidad para ayuno de Miércoles y Viernes.</p>
                     </div>
 
                     <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
@@ -320,9 +319,9 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT CON AYUNO DE MEDJUGORJE INTEGRADO EN MIÉRCOLES Y VIERNES -->
+    <!-- JAVASCRIPT LOGIC COMPLETO PARA LAS 3 SEMANAS Y TODOS SUS DÍAS -->
     <script>
-        let PLAN_DATA = {
+        const PLAN_DATA = {
             1: {
                 title: "Semana 1: Enfoque Clásico y Rápido",
                 days: {
@@ -341,10 +340,10 @@
                         { id: "w1_mar_cen", cat: "cena", title: "Cena", text: "2 latas atún + 100g boniato microondas + Champiñones.", detail: "Digestión ligera." }
                     ]},
                     miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso Activo", tasks: [
-                        { id: "w1_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ofrecimiento del ayuno y oración matutina." },
-                        { id: "w1_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Desconexión y reflexión.", detail: "Descanso mental y recarga espiritual." },
-                        { id: "w1_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Alimento sencillo en oración." },
-                        { id: "w1_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua para culminar el día.", detail: "Paz y descanso nocturno." }
+                        { id: "w1_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ofrecimiento y oración." },
+                        { id: "w1_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Cero gimnasio.", detail: "Descanso mental." },
+                        { id: "w1_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Oración." },
+                        { id: "w1_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz nocturna." }
                     ]},
                     jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
                         { id: "w1_jue_des", cat: "desayuno", title: "Desayuno", text: "250g yogur griego + 40g avena + nueces + plátano.", detail: "Glucógeno." },
@@ -354,11 +353,11 @@
                         { id: "w1_jue_cen", cat: "cena", title: "Cena", text: "200g Emperador + 100g boniato + Ensalada.", detail: "Omega-3." }
                     ]},
                     viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
-                        { id: "w1_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Comienzo del ayuno espiritual." },
-                        { id: "w1_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12 pasos) ➔ Curl isquios (4x12) ➔ Prensa moderada (3x15).", detail: "Mantén cargas moderadas consciente del ayuno." },
-                        { id: "w1_vie_hii", cat: "cardio", title: "Cardio Suave", text: "10 min elíptica ritmo moderado continuo.", detail: "Sin fatiga excesiva." },
-                        { id: "w1_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Fuerza y serenidad." },
-                        { id: "w1_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua para culminar el día.", detail: "Cierre del ayuno espiritual del viernes." }
+                        { id: "w1_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ayuno espiritual." },
+                        { id: "w1_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12 pasos) ➔ Curl isquios (4x12) ➔ Prensa moderada (3x15).", detail: "Cargas moderadas." },
+                        { id: "w1_vie_hii", cat: "cardio", title: "Cardio Suave", text: "10 min elíptica ritmo continuo.", detail: "Sin sobreesfuerzo." },
+                        { id: "w1_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Oración." },
+                        { id: "w1_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Culminación del día." }
                     ]},
                     sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
                         { id: "w1_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos diarios.", detail: "Paseo activo." },
@@ -372,32 +371,92 @@
             2: {
                 title: "Semana 2: Enfoque Variedad y Sabores",
                 days: {
-                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys y albahaca + 1 tostada.", detail: "Sabor fresco." }] },
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
+                        { id: "w2_lun_des", cat: "desayuno", title: "Desayuno Italia", text: "3 huevos revueltos con cherrys y albahaca + 1 tostada.", detail: "Sabor fresco." },
+                        { id: "w2_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón (3x10).", detail: "Fuerza." },
+                        { id: "w2_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta paso rápido.", detail: "5 km/h." },
+                        { id: "w2_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras pollo salteadas con pimientos y cebolla + arroz integral.", detail: "Vitamina C." },
+                        { id: "w2_lun_cen", cat: "cena", title: "Cena", text: "200g Atún fresco a la plancha + 150g puré de patata casero + Espárragos.", detail: "Puré sin mantequilla." }
+                    ]},
+                    martes: { name: "Martes", badge: "Fuerza Pierna", tasks: [
+                        { id: "w2_mar_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + 40g copos maíz + 15g almendras + fresas.", detail: "Proteína fresca." },
+                        { id: "w2_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones (3x12) ➔ Gemelos (3x15).", detail: "Isquios." },
+                        { id: "w2_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series plancha frontal al fallo.", detail: "Core." },
+                        { id: "w2_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Hamburguesa ternera magra + 150g calabaza asada + Canónigos.", detail: "Gourmet limpio." },
+                        { id: "w2_mar_cen", cat: "cena", title: "Cena", text: "Tortilla 2 huevos con berberechos + Crema de verduras casera.", detail: "Ligero." }
+                    ]},
                     miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso", tasks: [
-                        { id: "w2_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua fresca.", detail: "Ayuno espiritual." },
-                        { id: "w2_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w2_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Oración." },
+                        { id: "w2_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos escuchando tu podcast favorito.", detail: "Descanso activo." },
+                        { id: "w2_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua abundante.", detail: "Ayuno." },
                         { id: "w2_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
                     ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w2_jue_des", cat: "desayuno", title: "Desayuno", text: "250g Queso batido 0% + copos maíz + almendras + fresas.", detail: "Crujiente." },
+                        { id: "w2_jue_gym", cat: "gym", title: "Gym: Torso", text: "Press inclinado (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones (4x15) ➔ Superserie Arms (3x12).", detail: "Hipertrofia." },
+                        { id: "w2_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Ritmo continuo." },
+                        { id: "w2_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Tiras pollo salteadas + 150g puré de patata.", detail: "Proteína." },
+                        { id: "w2_jue_cen", cat: "cena", title: "Cena", text: "200g Sepia a la plancha con ajo y perejil + calabaza asada.", detail: "Muy bajo en grasa." }
+                    ]},
                     viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
-                        { id: "w2_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
-                        { id: "w2_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w2_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ayuno." },
+                        { id: "w2_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12 pasos) ➔ Curl isquios (4x12) ➔ Prensa (3x15).", detail: "Resistencia." },
+                        { id: "w2_vie_hii", cat: "cardio", title: "Cardio Suave", text: "10 min elíptica ritmo moderado.", detail: "Suave." },
+                        { id: "w2_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Oración." },
                         { id: "w2_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w2_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos.", detail: "Movimiento." },
+                        { id: "w2_sab_nut", cat: "almuerzo", title: "Nutrición", text: "Platos limpios con proteína de calidad.", detail: "Consistencia." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Batch Cooking", tasks: [
+                        { id: "w2_dom_bat", cat: "mision", title: "Batch Cooking (40 min)", text: "Dejar calabaza asada, puré y pan artesanal listo.", detail: "Organización." }
                     ]}
                 }
             },
             3: {
                 title: "Semana 3: Enfoque Práctico y Especias",
                 days: {
-                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [{ id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + tostada crema cacahuete + manzana.", detail: "Energía." }] },
+                    lunes: { name: "Lunes", badge: "Fuerza Torso", tasks: [
+                        { id: "w3_lun_des", cat: "desayuno", title: "Desayuno Dulce", text: "3 huevos tortilla con canela + 1 tostada crema cacahuete + manzana.", detail: "Energía." },
+                        { id: "w3_lun_gym", cat: "gym", title: "Gym: Torso", text: "Press banca (4x8) ➔ Remo barra (4x8) ➔ Press militar (3x10) ➔ Jalón (3x10).", detail: "Fuerza." },
+                        { id: "w3_lun_car", cat: "cardio", title: "Cardio Cinta", text: "15 min cinta paso rápido.", detail: "Inclinada." },
+                        { id: "w3_lun_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo al curry + arroz basmati + salteado verduras.", detail: "Curry." },
+                        { id: "w3_lun_cen", cat: "cena", title: "Cena", text: "200g Dorada al horno + 150g patata panadera + Ensalada.", detail: "Proteína magra." }
+                    ]},
+                    martes: { name: "Martes", badge: "Fuerza Pierna", tasks: [
+                        { id: "w3_mar_des", cat: "desayuno", title: "Batido Saciante", text: "250g yogur griego + 40g avena molida + cacao puro + plátano.", detail: "En 2 min." },
+                        { id: "w3_mar_gym", cat: "gym", title: "Gym: Pierna", text: "Prensa (4x8) ➔ Peso muerto rumano (4x10) ➔ Extensiones (3x12) ➔ Gemelos (3x15).", detail: "Isquios." },
+                        { id: "w3_mar_abd", cat: "cardio", title: "Abdomen", text: "3 series plancha frontal al fallo.", detail: "Core." },
+                        { id: "w3_mar_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Ternera picada mexicana + maíz dulce + ensalada picada.", detail: "Especias." },
+                        { id: "w3_mar_cen", cat: "cena", title: "Cena", text: "200g Langostinos + crema de calabaza + 100g boniato.", detail: "Bajo en grasa." }
+                    ]},
                     miercoles: { name: "Miércoles", badge: "Ayuno Espiritual & Descanso", tasks: [
-                        { id: "w3_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
-                        { id: "w3_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w3_mie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Oración." },
+                        { id: "w3_mie_mis", cat: "mision", title: "Misión Hoy", text: "Camina 30 minutos al aire libre. Desconecta.", detail: "Salud mental." },
+                        { id: "w3_mie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua.", detail: "Ayuno." },
                         { id: "w3_mie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
                     ]},
+                    jueves: { name: "Jueves", badge: "Definición Torso", tasks: [
+                        { id: "w3_jue_des", cat: "desayuno", title: "Batido Saciante", text: "250g yogur griego + avena molida + cacao + plátano.", detail: "Rápido." },
+                        { id: "w3_jue_gym", cat: "gym", title: "Gym: Torso", text: "Press inclinado (4x12) ➔ Remo 1 mano (4x12) ➔ Elevaciones (4x15) ➔ Superserie Arms (3x12).", detail: "Hipertrofia." },
+                        { id: "w3_jue_car", cat: "cardio", title: "Cardio Bici", text: "15 min bicicleta estática.", detail: "Continuo." },
+                        { id: "w3_jue_alm", cat: "almuerzo", title: "Almuerzo", text: "200g Pechuga pollo al curry + 150g patata panadera + verduras.", detail: "Completo." },
+                        { id: "w3_jue_cen", cat: "cena", title: "Cena", text: "200g Bacalao desalado con pisto de verduras casero.", detail: "Licopeno." }
+                    ]},
                     viernes: { name: "Viernes", badge: "Ayuno Espiritual & Gym Pierna", tasks: [
-                        { id: "w3_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Ayuno espiritual." },
-                        { id: "w3_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal + Agua.", detail: "Oración." },
+                        { id: "w3_vie_des", cat: "desayuno", title: "Desayuno Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan artesanal de calidad + Agua fresca.", detail: "Ayuno." },
+                        { id: "w3_vie_gym", cat: "gym", title: "Gym: Pierna", text: "Zancadas (3x12 pasos) ➔ Curl isquios (4x12) ➔ Prensa (3x15).", detail: "Resistencia." },
+                        { id: "w3_vie_hii", cat: "cardio", title: "Cardio Suave", text: "10 min elíptica ritmo continuo.", detail: "Suave." },
+                        { id: "w3_vie_alm", cat: "almuerzo", title: "Almuerzo Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Oración." },
                         { id: "w3_vie_cen", cat: "cena", title: "Cena Ayuno", text: "Ayuno Espiritual de Medjugorje: Pan de calidad + Agua.", detail: "Paz." }
+                    ]},
+                    sabado: { name: "Sábado", badge: "Mantenimiento", tasks: [
+                        { id: "w3_sab_act", cat: "mision", title: "Pasos", text: "Mínimo 8.000 pasos.", detail: "Movimiento." },
+                        { id: "w3_sab_nut", cat: "almuerzo", title: "Nutrición", text: "Platos limpios con proteína.", detail: "Equilibrio." }
+                    ]},
+                    domingo: { name: "Domingo", badge: "Reset & Batch Cooking", tasks: [
+                        { id: "w3_dom_bat", cat: "mision", title: "Reset de 3 Semanas", text: "Prepara la vuelta a la Semana 1 con más fuerza.", detail: "Evaluación." }
                     ]}
                 }
             }
@@ -426,15 +485,15 @@
                 case 'desayuno': return `<svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>`;
                 case 'gym': return `<svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`;
                 case 'cardio': return `<svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`;
-                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>`;
+                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 00-4z" /></svg>`;
                 case 'cena': return `<svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
                 default: return `<svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
             }
         }
 
         const AI_COACHES = {
-            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E", systemPrompt: "Eres la Dra. Elena Ruiz. CONOCES Y RESPETAS EL AYUNO ESPIRITUAL DEL USUARIO A BASE DE PAN Y AGUA LOS MIÉRCOLES Y VIERNES (como se pide en Medjugorje). Apoya su ayuno de esos dos días y ajusta la nutrición de los días de entresemana en consecuencia." },
-            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M", systemPrompt: "Eres el Coach Marcos Vane. Sabes que el usuario hace ayuno los miércoles y viernes, por lo que adaptas el volumen e intensidad de entrenamiento en esos días de ayuno." }
+            nutrition: { name: "Dra. Elena Ruiz", title: "Nutricionista IA", avatar: "E", systemPrompt: "Eres la Dra. Elena Ruiz. CONOCES Y RESPETAS EL AYUNO ESPIRITUAL DEL USUARIO A BASE DE PAN Y AGUA LOS MIÉRCOLES Y VIERNES. Apoya su ayuno de esos días." },
+            fitness: { name: "Coach Marcos Vane", title: "Entrenador Gym IA", avatar: "M", systemPrompt: "Eres el Coach Marcos Vane. Sabes que el usuario hace ayuno los miércoles y viernes, adaptando las cargas para esos días." }
         };
 
         let currentState = {
@@ -444,6 +503,8 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Limpiar caché anterior si existía plan incompleto guardado
+            localStorage.removeItem('vita_pro_custom_plan');
             loadFromLocalStorage();
             renderDaySelector();
             renderCurrentDayTasks();
@@ -526,46 +587,6 @@
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
         }
 
-        async function runFullCycleEvaluation() {
-            const mealsScore = document.getElementById('eval-meals-score').value;
-            const gymScore = document.getElementById('eval-gym-score').value;
-            const energyScore = document.getElementById('eval-energy').value;
-            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
-
-            const container = document.getElementById('eval-report-container');
-            const reportText = document.getElementById('eval-report-text');
-            container.classList.remove('hidden');
-            reportText.innerText = "Tus Agentes Dra. Elena y Coach Marcos están analizando tu rendimiento y tus días de ayuno de las últimas 3 semanas...";
-
-            if (!apiKey) {
-                setTimeout(() => {
-                    reportText.innerText = `Evaluación completada (Modo Asistido):\n\n• Diagnóstico: Adherencia ${mealsScore}, rendimiento gym ${gymScore}.\n• Objetivos Ciclo 2: Mantener el Ayuno Espiritual de Medjugorje (Mié/Vie) y progresar en ejercicios de empuje los lunes y jueves.`;
-                }, 800);
-                return;
-            }
-
-            try {
-                const res = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({
-                        model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: 'Eres un equipo formado por una nutricionista y un entrenador. Evalúa los resultados respetando siempre su ayuno de pan y agua los miércoles y viernes.' },
-                            { role: 'user', content: `Resultado 3 Semanas: Cumplimiento: ${mealsScore}, Rendimiento gym: ${gymScore}, Energía: ${energyScore}.` }
-                        ]
-                    })
-                });
-                const data = await res.json();
-                if (data.choices && data.choices[0]) {
-                    reportText.innerText = data.choices[0].message.content;
-                    document.getElementById('ai-active-goals').innerHTML = `• <strong>Nuevos Objetivos IA (Ciclo 2):</strong> ${data.choices[0].message.content.substring(0, 180)}...`;
-                }
-            } catch(e) {
-                reportText.innerText = "Error de conexión al evaluar con OpenAI.";
-            }
-        }
-
         function renderGroceryList() {
             const container = document.getElementById('grocery-categories');
             const week = document.getElementById('grocery-week-select').value;
@@ -589,8 +610,6 @@
             });
 
             document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
-            document.getElementById('btn-run-full-evaluation')?.addEventListener('click', runFullCycleEvaluation);
-            document.getElementById('btn-open-eval-modal')?.addEventListener('click', () => switchView('eval'));
 
             document.getElementById('btn-save-api-key')?.addEventListener('click', () => {
                 const key = document.getElementById('api-key-input').value.trim();
