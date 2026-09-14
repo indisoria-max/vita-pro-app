@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Planificador & Fitness IA</title>
+    <title>VITA PRO - Compra Exacta & Batch Cooking</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -55,9 +55,9 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Proactiv IA</span>
+                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Prep & Compra Fiel</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Rotativo & Ayuno Espiritual (Mié y Vie)</p>
+                    <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Rotativo con Batch Cooking Preciso</p>
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
     <!-- MAIN CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 lg:px-8 pt-6">
 
-        <!-- GOLDEN RULE -->
+        <!-- GOLDEN RULE BANNER -->
         <div class="mb-6 glass-card rounded-2xl p-4 lg:p-5 border-l-4 border-l-brand-500 relative overflow-hidden">
             <div class="flex items-start gap-3.5">
                 <div class="p-2.5 bg-brand-500/10 text-brand-500 rounded-xl mt-0.5 shrink-0">
@@ -205,7 +205,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: COACHES IA CHAT CON SWITCHER REPARADO -->
+        <!-- SECCIÓN 3: COACHES IA CHAT EN VIVO -->
         <section id="view-coaches" class="space-y-6 hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="space-y-4">
@@ -261,14 +261,15 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: BATCH COOKING -->
+        <!-- SECCIÓN 4: BATCH COOKING & LISTA DE LA COMPRA MEJORADA -->
         <section id="view-grocery" class="space-y-6 hidden">
-            <div class="glass-panel rounded-2xl p-6 border border-white/10">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+            <div class="glass-panel rounded-2xl p-6 border border-white/10 space-y-6">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
                     <div>
                         <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
-                        <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
-                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes para tu nutrición y el pan de calidad para ayuno de Miércoles y Viernes.</p>
+                        <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra Exacta</h2>
+                        <p class="text-xs text-slate-400 mt-1">Protocolo de preparación del domingo e ingredientes para cada semana.</p>
                     </div>
 
                     <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
@@ -281,6 +282,16 @@
                     </div>
                 </div>
 
+                <!-- BANNER BATCH COOKING PROTOCOL -->
+                <div id="batch-cooking-protocol" class="glass-card rounded-2xl p-5 border border-brand-500/30 bg-brand-500/5">
+                    <h3 id="batch-title" class="text-sm font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Protocolo Prep Domingo (40 Minutos)
+                    </h3>
+                    <p id="batch-steps" class="text-xs text-slate-300 leading-relaxed whitespace-pre-line"></p>
+                </div>
+
+                <!-- CATEGORÍAS DE LA COMPRA -->
                 <div id="grocery-categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
         </section>
@@ -320,7 +331,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC CON LAS 3 SEMANAS COMPLETAS DE 7 DÍAS -->
+    <!-- JAVASCRIPT LOGIC CON BATCH COOKING REAL Y COMPRA FIEL -->
     <script>
         const PLAN_DATA = {
             1: {
@@ -463,21 +474,40 @@
             }
         };
 
+        // PROTOCOLOS BATCH COOKING FIELES POR SEMANA
+        const BATCH_PROTOCOLS = {
+            1: `1. Cuece 3 patatas medianas y asar 2 boniatos enteros en el microondas o micro-horno (3-4 min cada uno).
+2. Saltea 1 bolsa de judías verdes y hierve 1 bloque de brócoli al vapor.
+3. Trocea 400g pechuga de pollo y 400g ternera magra en tuppers listos para la plancha.
+4. Compra 1 hogaza grande de pan artesanal de calidad para el ayuno de Miércoles y Viernes.`,
+            2: `1. Asar 300g de calabaza en dados y preparar un puré de patata casero sin mantequilla (400g).
+2. Olla rápida de crema casera de calabacín y puerro para la cena del martes.
+3. Saltear 400g de tiras de pollo con pimientos rojos/verdes y cebolla picada.
+4. Tener a mano la hogaza de pan artesanal de masa madre para el ayuno de Miércoles y Viernes.`,
+            3: `1. Cocinar 400g de pechuga de pollo con curry en polvo, zanahoria y calabacín salteado.
+2. Preparar 1 pisto casero de verduras (tomate, pimiento, cebolla) para acompañar el bacalao desalado.
+3. Saltear 200g de carne picada de ternera magra con especias mexicanas y maíz dulce.
+4. Tener listo el pan artesanal de calidad para los ayunos de Miércoles y Viernes.`
+        };
+
         const GROCERY_DATA = {
             1: [
-                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
-                { category: "Proteínas Magras", items: ["1 kg Pechuga de pollo", "600g Ternera magra", "400g Salmón fresco", "4 Latas de atún al natural"] },
-                { category: "Lácteos, Huevos & Carbohidratos", items: ["3 Docenas de huevos", "1 kg Yogur griego 0%", "Vasitos de arroz", "Patatas & Boniatos"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["1 Hogaza grande de pan artesanal (masa madre)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["400g Pechuga de pollo", "400g Ternera magra filetes", "200g Salmón fresco", "200g Emperador / Pez espada", "4 Latas de atún al natural"] },
+                { category: "Lácteos, Huevos & Semillas", items: ["3 Docenas de huevos frescos", "500g Yogur griego ligero 0%", "1 Bolsa de nueces peladas"] },
+                { category: "Carbohidratos & Verduras", items: ["3 Vasitos de arroz microondas", "3 Patatas medianas & 2 Boniatos", "1 Brócoli grande & 1 bolsa judías verdes", "2 Aguacates & 2 Plátanos"] }
             ],
             2: [
-                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
-                { category: "Proteínas Magras", items: ["800g Tiras de pollo", "400g Hamburguesas ternera magra", "400g Lomo ibérico", "200g Sepia/Calamar"] },
-                { category: "Lácteos, Huevos & Carbohidratos", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "Arroz integral", "Calabaza asada"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["1 Hogaza grande de pan artesanal (masa madre)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["400g Pechuga de pollo en tiras", "400g Hamburguesas ternera magra", "200g Atún fresco o emperador", "200g Sepia o calamar fresco", "1 Lata de berberechos"] },
+                { category: "Lácteos, Huevos & Semillas", items: ["2 Docenas de huevos", "1 kg Queso batido 0%", "1 Bolsa de almendras al natural"] },
+                { category: "Carbohidratos & Verduras", items: ["2 Vasitos de arroz integral microondas", "400g Patatas (para puré casero)", "1 Paquete copos de maíz sin azúcar", "300g Calabaza asada & 1 Pimiento rojo/verde", "2 Calabacines & 1 Puerro (para crema)", "1 Caja de fresas / frutos rojos"] }
             ],
             3: [
-                { category: "Ayuno Espiritual (Mié y Vie)", items: ["Pan artesanal de calidad (hogaza madre/integral)", "Agua mineral abundante"] },
-                { category: "Proteínas Magras", items: ["800g Pechuga de pollo", "600g Ternera picada 95% magra", "400g Solomillo pavo"] },
-                { category: "Lácteos, Huevos & Carbohidratos", items: ["2 Docenas de huevos", "1 kg Yogur griego 0%", "Arroz basmati", "Crema de cacahuete"] }
+                { category: "Ayuno Espiritual (Mié y Vie)", items: ["1 Hogaza grande de pan artesanal (masa madre)", "Agua mineral abundante"] },
+                { category: "Proteínas Magras", items: ["400g Pechuga de pollo", "200g Carne picada ternera 95% magra", "200g Langostinos frescos", "200g Dorada para horno", "200g Bacalao desalado"] },
+                { category: "Lácteos, Huevos & Semillas", items: ["2 Docenas de huevos", "1 kg Yogur griego ligero 0%", "1 Bote crema de cacahuete pura 100%"] },
+                { category: "Carbohidratos & Verduras", items: ["3 Vasitos arroz basmati microondas", "1 Bolsa avena molida & Cacao puro", "1 Lata maíz dulce & 3 Patatas panaderas", "Curry, Canela & Especias mexicanas", "1 Calabaza pequeña & 2 Tomates grandes", "3 Manzanas & 2 Plátanos"] }
             ]
         };
 
@@ -486,7 +516,7 @@
                 case 'desayuno': return `<svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>`;
                 case 'gym': return `<svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`;
                 case 'cardio': return `<svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`;
-                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 00-4z" /></svg>`;
+                case 'almuerzo': return `<svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>`;
                 case 'cena': return `<svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
                 default: return `<svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
             }
@@ -504,7 +534,6 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Limpiar caché antiguo para cargar la estructura limpia de 3 semanas completas
             localStorage.removeItem('vita_pro_custom_plan');
             loadFromLocalStorage();
             renderDaySelector();
@@ -596,55 +625,28 @@
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
         }
 
-        async function runFullCycleEvaluation() {
-            const mealsScore = document.getElementById('eval-meals-score').value;
-            const gymScore = document.getElementById('eval-gym-score').value;
-            const energyScore = document.getElementById('eval-energy').value;
-            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
-
-            const container = document.getElementById('eval-report-container');
-            const reportText = document.getElementById('eval-report-text');
-            container.classList.remove('hidden');
-            reportText.innerText = "Tus Agentes Dra. Elena y Coach Marcos están analizando tu rendimiento de las 3 semanas para fijar tus nuevos objetivos...";
-
-            if (!apiKey) {
-                setTimeout(() => {
-                    reportText.innerText = `Evaluación completada (Modo Asistido):\n\n• Diagnóstico: Adherencia ${mealsScore}, rendimiento gym ${gymScore}.\n• Objetivos Ciclo 2: Mantener el Ayuno Espiritual de Medjugorje (Mié/Vie) y progresar en ejercicios de empuje los lunes y jueves.`;
-                }, 800);
-                return;
-            }
-
-            try {
-                const res = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({
-                        model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: 'Eres un equipo formado por una nutricionista y un entrenador. Evalúa los resultados respetando siempre su ayuno de pan y agua los miércoles y viernes.' },
-                            { role: 'user', content: `Resultado 3 Semanas: Cumplimiento: ${mealsScore}, Rendimiento gym: ${gymScore}, Energía: ${energyScore}.` }
-                        ]
-                    })
-                });
-                const data = await res.json();
-                if (data.choices && data.choices[0]) {
-                    reportText.innerText = data.choices[0].message.content;
-                    document.getElementById('ai-active-goals').innerHTML = `• <strong>Nuevos Objetivos IA (Ciclo 2):</strong> ${data.choices[0].message.content.substring(0, 180)}...`;
-                }
-            } catch(e) {
-                reportText.innerText = "Error de conexión al evaluar con OpenAI.";
-            }
-        }
-
+        // RENDERIZADO DINÁMICO DE BATCH COOKING Y COMPRA SEGÚN LA SEMANA
         function renderGroceryList() {
             const container = document.getElementById('grocery-categories');
-            const week = document.getElementById('grocery-week-select').value;
+            const selectedWeek = document.getElementById('grocery-week-select').value;
+            
+            // Actualizar el protocolo del domingo
+            document.getElementById('batch-steps').innerText = BATCH_PROTOCOLS[selectedWeek] || BATCH_PROTOCOLS[1];
+
             container.innerHTML = '';
-            const cats = GROCERY_DATA[week] || GROCERY_DATA[1];
-            cats.forEach(c => {
+            const categories = GROCERY_DATA[selectedWeek] || GROCERY_DATA[1];
+            categories.forEach(c => {
                 const card = document.createElement('div');
                 card.className = "glass-card rounded-2xl p-5 border border-white/5";
-                card.innerHTML = `<h4 class="text-xs font-bold text-white uppercase mb-3 pb-2 border-b border-white/5">${c.category}</h4><ul class="space-y-2 text-xs text-slate-300">${c.items.map(i => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${i}</li>`).join('')}</ul>`;
+                card.innerHTML = `
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/5 flex items-center justify-between">
+                        <span>${c.category}</span>
+                        <span class="text-[10px] text-brand-500 font-normal">${c.items.length} productos</span>
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        ${c.items.map(item => `<li class="flex items-center gap-2"><span class="text-brand-500 font-bold">•</span> ${item}</li>`).join('')}
+                    </ul>
+                `;
                 container.appendChild(card);
             });
         }
@@ -673,7 +675,7 @@
             const coach = AI_COACHES[currentState.activeAgent];
 
             if (history.length === 0) {
-                appendChatMessage('ai', `¡Hola! Soy la ${coach.name}. Conozco tu rutina completa y respetaré tu ayuno espiritual los miércoles y viernes. ¿En qué te ayudo hoy?`, false);
+                appendChatMessage('ai', `¡Hola! Soy la ${coach.name}. Conozco tu rutina y tu ayuno de Medjugorje los miércoles y viernes. ¿En qué puedo ayudarte hoy?`, false);
             } else {
                 history.forEach(msg => appendChatMessage(msg.sender, msg.text, false));
             }
@@ -702,8 +704,6 @@
             document.getElementById('agent-card-fitness')?.addEventListener('click', () => switchAgent('fitness'));
 
             document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
-            document.getElementById('btn-run-full-evaluation')?.addEventListener('click', runFullCycleEvaluation);
-            document.getElementById('btn-open-eval-modal')?.addEventListener('click', () => switchView('eval'));
 
             document.getElementById('modal-close')?.addEventListener('click', () => {
                 document.getElementById('detail-modal').classList.add('hidden');
