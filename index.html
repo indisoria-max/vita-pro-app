@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VITA PRO - Plan Completo 3 Semanas & Fitness IA</title>
+    <title>VITA PRO - Planificador & Fitness IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -55,7 +55,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="text-lg font-bold tracking-tight text-white leading-none">VITA<span class="text-brand-500">PRO</span></h1>
-                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">3 Semanas Completas</span>
+                        <span id="cycle-badge" class="px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 rounded-full">Proactiv IA</span>
                     </div>
                     <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Planificador Rotativo & Ayuno Espiritual (Mié y Vie)</p>
                 </div>
@@ -205,7 +205,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: COACHES IA CHAT -->
+        <!-- SECCIÓN 3: COACHES IA CHAT CON SWITCHER REPARADO -->
         <section id="view-coaches" class="space-y-6 hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="space-y-4">
@@ -268,6 +268,7 @@
                     <div>
                         <span class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Misión Domingo</span>
                         <h2 class="text-2xl font-bold text-white mt-1">Batch Cooking & Lista de la Compra</h2>
+                        <p class="text-xs text-slate-400 mt-1">Lista de ingredientes para tu nutrición y el pan de calidad para ayuno de Miércoles y Viernes.</p>
                     </div>
 
                     <div class="flex items-center gap-2 bg-dark-bg p-2 rounded-xl border border-white/5">
@@ -319,7 +320,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC COMPLETO PARA LAS 3 SEMANAS Y TODOS SUS DÍAS -->
+    <!-- JAVASCRIPT LOGIC CON LAS 3 SEMANAS COMPLETAS DE 7 DÍAS -->
     <script>
         const PLAN_DATA = {
             1: {
@@ -503,7 +504,7 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Limpiar caché anterior si existía plan incompleto guardado
+            // Limpiar caché antiguo para cargar la estructura limpia de 3 semanas completas
             localStorage.removeItem('vita_pro_custom_plan');
             loadFromLocalStorage();
             renderDaySelector();
@@ -578,6 +579,14 @@
                     currentState.completedTasks[task.id] = e.target.checked;
                     saveToLocalStorage(); renderDaySelector(); renderCurrentDayTasks();
                 });
+
+                card.querySelector('.btn-detail').addEventListener('click', () => {
+                    document.getElementById('modal-title').innerText = task.title;
+                    document.getElementById('modal-body').innerText = task.detail || task.text;
+                    document.getElementById('detail-modal').classList.remove('hidden');
+                    document.getElementById('detail-modal').classList.add('flex');
+                });
+
                 grid.appendChild(card);
             });
 
@@ -585,6 +594,46 @@
             document.getElementById('progress-circle').style.strokeDashoffset = 125.6 - (percentage / 100) * 125.6;
             document.getElementById('progress-text').innerText = `${percentage}%`;
             document.getElementById('progress-count').innerText = `${completedCount} de ${dayInfo.tasks.length} tareas`;
+        }
+
+        async function runFullCycleEvaluation() {
+            const mealsScore = document.getElementById('eval-meals-score').value;
+            const gymScore = document.getElementById('eval-gym-score').value;
+            const energyScore = document.getElementById('eval-energy').value;
+            const apiKey = localStorage.getItem('vita_pro_openai_key') || currentState.apiKey;
+
+            const container = document.getElementById('eval-report-container');
+            const reportText = document.getElementById('eval-report-text');
+            container.classList.remove('hidden');
+            reportText.innerText = "Tus Agentes Dra. Elena y Coach Marcos están analizando tu rendimiento de las 3 semanas para fijar tus nuevos objetivos...";
+
+            if (!apiKey) {
+                setTimeout(() => {
+                    reportText.innerText = `Evaluación completada (Modo Asistido):\n\n• Diagnóstico: Adherencia ${mealsScore}, rendimiento gym ${gymScore}.\n• Objetivos Ciclo 2: Mantener el Ayuno Espiritual de Medjugorje (Mié/Vie) y progresar en ejercicios de empuje los lunes y jueves.`;
+                }, 800);
+                return;
+            }
+
+            try {
+                const res = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                    body: JSON.stringify({
+                        model: 'gpt-4o-mini',
+                        messages: [
+                            { role: 'system', content: 'Eres un equipo formado por una nutricionista y un entrenador. Evalúa los resultados respetando siempre su ayuno de pan y agua los miércoles y viernes.' },
+                            { role: 'user', content: `Resultado 3 Semanas: Cumplimiento: ${mealsScore}, Rendimiento gym: ${gymScore}, Energía: ${energyScore}.` }
+                        ]
+                    })
+                });
+                const data = await res.json();
+                if (data.choices && data.choices[0]) {
+                    reportText.innerText = data.choices[0].message.content;
+                    document.getElementById('ai-active-goals').innerHTML = `• <strong>Nuevos Objetivos IA (Ciclo 2):</strong> ${data.choices[0].message.content.substring(0, 180)}...`;
+                }
+            } catch(e) {
+                reportText.innerText = "Error de conexión al evaluar con OpenAI.";
+            }
         }
 
         function renderGroceryList() {
@@ -600,6 +649,46 @@
             });
         }
 
+        function switchAgent(agentKey) {
+            currentState.activeAgent = agentKey;
+            const coach = AI_COACHES[agentKey];
+
+            document.getElementById('active-chat-avatar').innerText = coach.avatar;
+            document.getElementById('active-chat-name').innerText = coach.name;
+
+            if (agentKey === 'nutrition') {
+                document.getElementById('agent-card-nutrition').className = "agent-card active glass-card rounded-2xl p-4 border border-brand-500/40 bg-brand-500/10 cursor-pointer transition";
+                document.getElementById('agent-card-fitness').className = "agent-card glass-card rounded-2xl p-4 border border-white/5 hover:border-purple-500/30 cursor-pointer transition";
+            } else {
+                document.getElementById('agent-card-fitness').className = "agent-card active glass-card rounded-2xl p-4 border border-purple-500/40 bg-purple-500/10 cursor-pointer transition";
+                document.getElementById('agent-card-nutrition').className = "agent-card glass-card rounded-2xl p-4 border border-white/5 hover:border-emerald-500/30 cursor-pointer transition";
+            }
+            renderChatMessages();
+        }
+
+        function renderChatMessages() {
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = '';
+            const history = currentState.chatHistory[currentState.activeAgent];
+            const coach = AI_COACHES[currentState.activeAgent];
+
+            if (history.length === 0) {
+                appendChatMessage('ai', `¡Hola! Soy la ${coach.name}. Conozco tu rutina completa y respetaré tu ayuno espiritual los miércoles y viernes. ¿En qué te ayudo hoy?`, false);
+            } else {
+                history.forEach(msg => appendChatMessage(msg.sender, msg.text, false));
+            }
+        }
+
+        function appendChatMessage(sender, text, save = true) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+            msgDiv.innerHTML = `<div class="max-w-[85%] rounded-2xl p-3.5 text-xs ${sender === 'user' ? 'chat-bubble-user font-medium' : 'chat-bubble-ai text-slate-200'} shadow-lg"><p class="leading-relaxed whitespace-pre-line">${text}</p></div>`;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+            if (save) currentState.chatHistory[currentState.activeAgent].push({ sender, text });
+        }
+
         function setupEventListeners() {
             [1, 2, 3].forEach(w => {
                 document.getElementById(`week-tab-${w}`)?.addEventListener('click', (e) => {
@@ -609,7 +698,17 @@
                 });
             });
 
+            document.getElementById('agent-card-nutrition')?.addEventListener('click', () => switchAgent('nutrition'));
+            document.getElementById('agent-card-fitness')?.addEventListener('click', () => switchAgent('fitness'));
+
             document.getElementById('grocery-week-select')?.addEventListener('change', renderGroceryList);
+            document.getElementById('btn-run-full-evaluation')?.addEventListener('click', runFullCycleEvaluation);
+            document.getElementById('btn-open-eval-modal')?.addEventListener('click', () => switchView('eval'));
+
+            document.getElementById('modal-close')?.addEventListener('click', () => {
+                document.getElementById('detail-modal').classList.add('hidden');
+                document.getElementById('detail-modal').classList.remove('flex');
+            });
 
             document.getElementById('btn-save-api-key')?.addEventListener('click', () => {
                 const key = document.getElementById('api-key-input').value.trim();
